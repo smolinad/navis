@@ -2,7 +2,7 @@ import os
 import sys
 
 # Add the repo root so Sphinx can find 'navis'
-sys.path.insert(0, os.path.abspath("../../"))
+sys.path.insert(0, os.path.abspath("../"))
 
 # -- Project information -----------------------------------------------------
 
@@ -32,9 +32,9 @@ html_theme = "shibuya"
 html_static_path = ["_static"]
 
 html_theme_options = {
-     "nav_links": [
-         {"title": "GitHub", "url": "https://github.com/smolinad/navis"},
-     ]
+    "nav_links": [
+        {"title": "GitHub", "url": "https://github.com/smolinad/navis"},
+    ]
 }
 
 html_css_files = [
