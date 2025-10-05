@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="violet" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>navis package - Navis 0.1.0 documentation</title><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="navis.messages package" href="navis.messages.html" /><link rel="prev" title="navis" href="modules.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b1a1f93b" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=bb284d7b" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="navis package"/>
+<meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../index.html">
+      
+      
+      <strong>Navis</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">navis</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">navis package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="navis.messages.html">navis.messages package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../navis.html">navis package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../navis.messages.html">navis.messages package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">navis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../navis.html">navis package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../navis.messages.html">navis.messages package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-navis.api">navis.api module</a><ul>
+<li><a class="reference internal" href="#navis.api.ServerAddress"><code class="docutils literal notranslate"><span class="pre">ServerAddress</span></code></a><ul>
+<li><a class="reference internal" href="#navis.api.ServerAddress.host"><code class="docutils literal notranslate">host</span></code></a></li>
+<li><a class="reference internal" href="#navis.api.ServerAddress.port"><code class="docutils literal notranslate">port</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.api.set_server_address"><code class="docutils literal notranslate"><span class="pre">set_server_address()</span></code></a></li>
+<li><a class="reference internal" href="#navis.api.get_rest_api_uri"><code class="docutils literal notranslate"><span class="pre">get_rest_api_uri()</span></code></a></li>
+<li><a class="reference internal" href="#navis.api.get_websocket_uri"><code class="docutils literal notranslate"><span class="pre">get_websocket_uri()</span></code></a></li>
+<li><a class="reference internal" href="#navis.api.RobotConnection"><code class="docutils literal notranslate"><span class="pre">RobotConnection</span></code></a><ul>
+<li><a class="reference internal" href="#navis.api.RobotConnection.start"><code class="docutils literal notranslate">start()</span></code></a></li>
+<li><a class="reference internal" href="#navis.api.RobotConnection.stop"><code class="docutils literal notranslate">stop()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.api.get_state"><code class="docutils literal notranslate"><span class="pre">get_state()</span></code></a></li>
+<li><a class="reference internal" href="#navis.api.move"><code class="docutils literal notranslate"><span class="pre">move()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-navis.robot">navis.robot module</a><ul>
+<li><a class="reference internal" href="#navis.robot.BaseRobot"><code class="docutils literal notranslate"><span class="pre">BaseRobot</span></code></a><ul>
+<li><a class="reference internal" href="#navis.robot.BaseRobot.robot_id"><code class="docutils literal notranslate">robot_id</span></code></a></li>
+<li><a class="reference internal" href="#navis.robot.BaseRobot.x"><code class="docutils literal notranslate">x</span></code></a></li>
+<li><a class="reference internal" href="#navis.robot.BaseRobot.y"><code class="docutils literal notranslate">y</span></code></a></li>
+<li><a class="reference internal" href="#navis.robot.BaseRobot.theta"><code class="docutils literal notranslate">theta</span></code></a></li>
+<li><a class="reference internal" href="#navis.robot.BaseRobot.last_measurement"><code class="docutils literal notranslate">last_measurement</span></code></a></li>
+<li><a class="reference internal" href="#navis.robot.BaseRobot.ws"><code class="docutils literal notranslate">ws</span></code></a></li>
+<li><a class="reference internal" href="#navis.robot.BaseRobot.lock"><code class="docutils literal notranslate">lock</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate">robot_id</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate">x</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate">y</span></code></a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate">theta</span></code></a></li>
+<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate">last_measurement</span></code></a></li>
+<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate">ws</span></code></a></li>
+<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate">lock</span></code></a></li>
+<li><a class="reference internal" href="#navis.robot.BaseRobot.update_from_proto"><code class="docutils literal notranslate">update_from_proto()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.robot.DifferentialDriveRobot"><code class="docutils literal notranslate"><span class="pre">DifferentialDriveRobot</span></code></a><ul>
+<li><a class="reference internal" href="#navis.robot.DifferentialDriveRobot.v"><code class="docutils literal notranslate">v</span></code></a></li>
+<li><a class="reference internal" href="#navis.robot.DifferentialDriveRobot.omega"><code class="docutils literal notranslate">omega</span></code></a></li>
+<li><a class="reference internal" href="#navis.robot.DifferentialDriveRobot.wheel_velocities"><code class="docutils literal notranslate">wheel_velocities</span></code></a></li>
+<li><a class="reference internal" href="#navis.robot.DifferentialDriveRobot.wheel_base"><code class="docutils literal notranslate">wheel_base</span></code></a></li>
+<li><a class="reference internal" href="#navis.robot.DifferentialDriveRobot.time_step"><code class="docutils literal notranslate">time_step</span></code></a></li>
+<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate">v</span></code></a></li>
+<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate">omega</span></code></a></li>
+<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate">wheel_velocities</span></code></a></li>
+<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate">wheel_base</span></code></a></li>
+<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate">time_step</span></code></a></li>
+<li><a class="reference internal" href="#navis.robot.DifferentialDriveRobot.update_from_proto"><code class="docutils literal notranslate">update_from_proto()</span></code></a></li>
+<li><a class="reference internal" href="#navis.robot.DifferentialDriveRobot.set_velocities"><code class="docutils literal notranslate">set_velocities()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-navis.server">navis.server module</a><ul>
+<li><a class="reference internal" href="#navis.server.lifespan"><code class="docutils literal notranslate"><span class="pre">lifespan()</span></code></a></li>
+<li><a class="reference internal" href="#navis.server.robot_ws"><code class="docutils literal notranslate"><span class="pre">robot_ws()</span></code></a></li>
+<li><a class="reference internal" href="#navis.server.move_robot"><code class="docutils literal notranslate"><span class="pre">move_robot()</span></code></a></li>
+<li><a class="reference internal" href="#navis.server.get_robot_state"><code class="docutils literal notranslate"><span class="pre">get_robot_state()</span></code></a></li>
+<li><a class="reference internal" href="#navis.server.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-navis.visualizer">navis.visualizer module</a><ul>
+<li><a class="reference internal" href="#navis.visualizer.state_fetcher_loop"><code class="docutils literal notranslate"><span class="pre">state_fetcher_loop()</span></code></a></li>
+<li><a class="reference internal" href="#navis.visualizer.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-navis">Module contents</a><ul>
+<li><a class="reference internal" href="#navis.set_server_address"><code class="docutils literal notranslate"><span class="pre">set_server_address()</span></code></a></li>
+<li><a class="reference internal" href="#navis.get_rest_api_uri"><code class="docutils literal notranslate"><span class="pre">get_rest_api_uri()</span></code></a></li>
+<li><a class="reference internal" href="#navis.get_websocket_uri"><code class="docutils literal notranslate"><span class="pre">get_websocket_uri()</span></code></a></li>
+<li><a class="reference internal" href="#navis.get_state"><code class="docutils literal notranslate"><span class="pre">get_state()</span></code></a></li>
+<li><a class="reference internal" href="#navis.move"><code class="docutils literal notranslate"><span class="pre">move()</span></code></a></li>
+<li><a class="reference internal" href="#navis.RobotConnection"><code class="docutils literal notranslate"><span class="pre">RobotConnection</span></code></a><ul>
+<li><a class="reference internal" href="#navis.RobotConnection.start"><code class="docutils literal notranslate">start()</span></code></a></li>
+<li><a class="reference internal" href="#navis.RobotConnection.stop"><code class="docutils literal notranslate">stop()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.ServerAddress"><code class="docutils literal notranslate"><span class="pre">ServerAddress</span></code></a><ul>
+<li><a class="reference internal" href="#navis.ServerAddress.host"><code class="docutils literal notranslate">host</span></code></a></li>
+<li><a class="reference internal" href="#navis.ServerAddress.port"><code class="docutils literal notranslate">port</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.BaseRobot"><code class="docutils literal notranslate"><span class="pre">BaseRobot</span></code></a><ul>
+<li><a class="reference internal" href="#navis.BaseRobot.robot_id"><code class="docutils literal notranslate">robot_id</span></code></a></li>
+<li><a class="reference internal" href="#navis.BaseRobot.x"><code class="docutils literal notranslate">x</span></code></a></li>
+<li><a class="reference internal" href="#navis.BaseRobot.y"><code class="docutils literal notranslate">y</span></code></a></li>
+<li><a class="reference internal" href="#navis.BaseRobot.theta"><code class="docutils literal notranslate">theta</span></code></a></li>
+<li><a class="reference internal" href="#navis.BaseRobot.last_measurement"><code class="docutils literal notranslate">last_measurement</span></code></a></li>
+<li><a class="reference internal" href="#navis.BaseRobot.ws"><code class="docutils literal notranslate">ws</span></code></a></li>
+<li><a class="reference internal" href="#navis.BaseRobot.lock"><code class="docutils literal notranslate">lock</span></code></a></li>
+<li><a class="reference internal" href="#id12"><code class="docutils literal notranslate">last_measurement</span></code></a></li>
+<li><a class="reference internal" href="#id13"><code class="docutils literal notranslate">theta</span></code></a></li>
+<li><a class="reference internal" href="#navis.BaseRobot.update_from_proto"><code class="docutils literal notranslate">update_from_proto()</span></code></a></li>
+<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate">ws</span></code></a></li>
+<li><a class="reference internal" href="#id15"><code class="docutils literal notranslate">x</span></code></a></li>
+<li><a class="reference internal" href="#id16"><code class="docutils literal notranslate">y</span></code></a></li>
+<li><a class="reference internal" href="#id17"><code class="docutils literal notranslate">robot_id</span></code></a></li>
+<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate">lock</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.DifferentialDriveRobot"><code class="docutils literal notranslate"><span class="pre">DifferentialDriveRobot</span></code></a><ul>
+<li><a class="reference internal" href="#navis.DifferentialDriveRobot.v"><code class="docutils literal notranslate">v</span></code></a></li>
+<li><a class="reference internal" href="#navis.DifferentialDriveRobot.omega"><code class="docutils literal notranslate">omega</span></code></a></li>
+<li><a class="reference internal" href="#navis.DifferentialDriveRobot.wheel_velocities"><code class="docutils literal notranslate">wheel_velocities</span></code></a></li>
+<li><a class="reference internal" href="#navis.DifferentialDriveRobot.wheel_base"><code class="docutils literal notranslate">wheel_base</span></code></a></li>
+<li><a class="reference internal" href="#navis.DifferentialDriveRobot.time_step"><code class="docutils literal notranslate">time_step</span></code></a></li>
+<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate">omega</span></code></a></li>
+<li><a class="reference internal" href="#navis.DifferentialDriveRobot.set_velocities"><code class="docutils literal notranslate">set_velocities()</span></code></a></li>
+<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate">time_step</span></code></a></li>
+<li><a class="reference internal" href="#navis.DifferentialDriveRobot.update_from_proto"><code class="docutils literal notranslate">update_from_proto()</span></code></a></li>
+<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate">v</span></code></a></li>
+<li><a class="reference internal" href="#id22"><code class="docutils literal notranslate">wheel_base</span></code></a></li>
+<li><a class="reference internal" href="#id23"><code class="docutils literal notranslate">wheel_velocities</span></code></a></li>
+<li><a class="reference internal" href="#navis.DifferentialDriveRobot.robot_id"><code class="docutils literal notranslate">robot_id</span></code></a></li>
+<li><a class="reference internal" href="#navis.DifferentialDriveRobot.lock"><code class="docutils literal notranslate">lock</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">Navis</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="modules.html"><span itemprop="name">navis</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">navis package</strong>
+        <meta itemprop="position" content="3" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="navis-package">
+<h1>navis package<a class="headerlink" href="#navis-package" title="Link to this heading">¶</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="navis.messages.html">navis.messages package</a></li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-navis.api">
+<span id="navis-api-module"></span><h2>navis.api module<a class="headerlink" href="#module-navis.api" title="Link to this heading">¶</a></h2>
+<p>Navis API Client for interacting with the robot control server.</p>
+<p>This module provides a simple, high-level Python interface for controlling
+and monitoring robots connected to the Navis server. It handles HTTP requests
+for sending commands and fetching state, and includes a real-time visualization
+tool and a “plug-and-play” real-time connection manager.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.api.ServerAddress">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.api.</span></span><span class="sig-name descname"><span class="pre">ServerAddress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4321</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#ServerAddress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.ServerAddress" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A dataclass to hold server connection details.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.api.ServerAddress.host">
+<span class="sig-name descname"><span class="pre">host</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'localhost'</span></em><a class="headerlink" href="#navis.api.ServerAddress.host" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.api.ServerAddress.port">
+<span class="sig-name descname"><span class="pre">port</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4321</span></em><a class="headerlink" href="#navis.api.ServerAddress.port" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.api.set_server_address">
+<span class="sig-prename descclassname"><span class="pre">navis.api.</span></span><span class="sig-name descname"><span class="pre">set_server_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4321</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#set_server_address"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.set_server_address" title="Link to this definition">¶</a></dt>
+<dd><p>Programmatically sets the server address for all subsequent API calls.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.api.get_rest_api_uri">
+<span class="sig-prename descclassname"><span class="pre">navis.api.</span></span><span class="sig-name descname"><span class="pre">get_rest_api_uri</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/navis/api.html#get_rest_api_uri"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.get_rest_api_uri" title="Link to this definition">¶</a></dt>
+<dd><p>Constructs the base URI for the REST API.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.api.get_websocket_uri">
+<span class="sig-prename descclassname"><span class="pre">navis.api.</span></span><span class="sig-name descname"><span class="pre">get_websocket_uri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/navis/api.html#get_websocket_uri"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.get_websocket_uri" title="Link to this definition">¶</a></dt>
+<dd><p>Constructs the full WebSocket URI for a specific robot.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.api.RobotConnection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.api.</span></span><span class="sig-name descname"><span class="pre">RobotConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">robot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">robot_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><span class="pre">object</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#RobotConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.RobotConnection" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Manages a persistent real-time connection to a robot on the server.</p>
+<p>This class provides a “plug-and-play” interface. You provide an object
+that represents your robot’s logic, and this class handles the WebSocket
+connection, registration, sending state updates, and receiving commands
+in the background.</p>
+<p>The provided <cite>robot_object</cite> must have two methods:
+- <cite>get_measurement()</cite>: Must return a Protobuf <cite>Measurement</cite> object.
+- <cite>handle_command(cmd)</cite>: Will be called with a Protobuf <cite>MoveCommand</cite> object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>robot_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The unique ID of the robot.</p></li>
+<li><p><strong>robot_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The type string (e.g., “DifferentialDriveRobot”).</p></li>
+<li><p><strong>robot_object</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – An instance of your robot’s logic class.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.api.RobotConnection.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#RobotConnection.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.RobotConnection.start" title="Link to this definition">¶</a></dt>
+<dd><p>Starts the robot connection loop in the background.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.api.RobotConnection.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#RobotConnection.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.RobotConnection.stop" title="Link to this definition">¶</a></dt>
+<dd><p>Stops the robot connection loop.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.api.get_state">
+<span class="sig-prename descclassname"><span class="pre">navis.api.</span></span><span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="../_modules/navis/api.html#get_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.get_state" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.api.move">
+<span class="sig-prename descclassname"><span class="pre">navis.api.</span></span><span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear_vel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular_vel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#move"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.move" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-navis.robot">
+<span id="navis-robot-module"></span><h2>navis.robot module<a class="headerlink" href="#module-navis.robot" title="Link to this heading">¶</a></h2>
+<p>Data classes and registry for representing and managing robot state.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.robot.BaseRobot">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.robot.</span></span><span class="sig-name descname"><span class="pre">BaseRobot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_measurement:</span> <span class="pre">~robot_comms_pb2.Measurement</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ws:</span> <span class="pre">~starlette.websockets.WebSocket</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock:</span> <span class="pre">~asyncio.locks.Lock</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/robot.html#BaseRobot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.robot.BaseRobot" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class representing a generic robot.</p>
+<p>This dataclass defines a common interface and shared attributes for all robot
+types managed by the server. It includes basic pose information, server-side
+connection details, and an abstract method for state updates.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.robot.BaseRobot.robot_id">
+<span class="sig-name descname"><span class="pre">robot_id</span></span><a class="headerlink" href="#navis.robot.BaseRobot.robot_id" title="Link to this definition">¶</a></dt>
+<dd><p>The unique identifier for the robot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.robot.BaseRobot.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#navis.robot.BaseRobot.x" title="Link to this definition">¶</a></dt>
+<dd><p>The robot’s x-coordinate in a global frame. Defaults to 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.robot.BaseRobot.y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#navis.robot.BaseRobot.y" title="Link to this definition">¶</a></dt>
+<dd><p>The robot’s y-coordinate in a global frame. Defaults to 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.robot.BaseRobot.theta">
+<span class="sig-name descname"><span class="pre">theta</span></span><a class="headerlink" href="#navis.robot.BaseRobot.theta" title="Link to this definition">¶</a></dt>
+<dd><p>The robot’s orientation (angle) in a global frame.
+Defaults to 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.robot.BaseRobot.last_measurement">
+<span class="sig-name descname"><span class="pre">last_measurement</span></span><a class="headerlink" href="#navis.robot.BaseRobot.last_measurement" title="Link to this definition">¶</a></dt>
+<dd><p>The last raw Protobuf
+measurement message received from the robot. Defaults to None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="../navis.messages.html#navis.messages.Measurement" title="navis.messages.Measurement">Measurement</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.robot.BaseRobot.ws">
+<span class="sig-name descname"><span class="pre">ws</span></span><a class="headerlink" href="#navis.robot.BaseRobot.ws" title="Link to this definition">¶</a></dt>
+<dd><p>The active WebSocket connection for this
+robot, if currently connected. Defaults to None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[WebSocket]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.robot.BaseRobot.lock">
+<span class="sig-name descname"><span class="pre">lock</span></span><a class="headerlink" href="#navis.robot.BaseRobot.lock" title="Link to this definition">¶</a></dt>
+<dd><p>An asyncio lock to ensure thread-safe access to
+the robot’s attributes, as multiple server tasks might access them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/asyncio-sync.html#asyncio.Lock" title="(in Python v3.13)">asyncio.Lock</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">robot_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">theta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">last_measurement</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../navis.messages.html#navis.messages.Measurement" title="robot_comms_pb2.Measurement"><span class="pre">Measurement</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">ws</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">WebSocket</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">lock</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Lock</span></em><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.robot.BaseRobot.update_from_proto">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_from_proto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../navis.messages.html#navis.messages.Measurement" title="robot_comms_pb2.Measurement"><span class="pre">Measurement</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/robot.html#BaseRobot.update_from_proto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.robot.BaseRobot.update_from_proto" title="Link to this definition">¶</a></dt>
+<dd><p>Abstract method to update the robot’s state from a Protobuf message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>meas</strong> (<a class="reference internal" href="../navis.messages.html#navis.messages.Measurement" title="navis.messages.Measurement"><em>Measurement</em></a>) – The Protobuf message containing new state data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.robot.DifferentialDriveRobot">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.robot.</span></span><span class="sig-name descname"><span class="pre">DifferentialDriveRobot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_measurement:</span> <span class="pre">~robot_comms_pb2.Measurement</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ws:</span> <span class="pre">~starlette.websockets.WebSocket</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock:</span> <span class="pre">~asyncio.locks.Lock</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wheel_velocities:</span> <span class="pre">~typing.List[float]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wheel_base:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_step:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/robot.html#DifferentialDriveRobot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.robot.DifferentialDriveRobot" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../navis.html#navis.robot.BaseRobot" title="navis.robot.BaseRobot"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseRobot</span></code></a></p>
+<p>Represents a two-wheeled differential drive robot.</p>
+<p>Inherits from <cite>BaseRobot</cite> and adds state and properties specific to a
+differential drive configuration, such as linear and angular velocities.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.robot.DifferentialDriveRobot.v">
+<span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#navis.robot.DifferentialDriveRobot.v" title="Link to this definition">¶</a></dt>
+<dd><p>The robot’s forward linear velocity. Defaults to 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.robot.DifferentialDriveRobot.omega">
+<span class="sig-name descname"><span class="pre">omega</span></span><a class="headerlink" href="#navis.robot.DifferentialDriveRobot.omega" title="Link to this definition">¶</a></dt>
+<dd><p>The robot’s angular velocity. Defaults to 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.robot.DifferentialDriveRobot.wheel_velocities">
+<span class="sig-name descname"><span class="pre">wheel_velocities</span></span><a class="headerlink" href="#navis.robot.DifferentialDriveRobot.wheel_velocities" title="Link to this definition">¶</a></dt>
+<dd><p>The individual velocities of the left
+and right wheels. Defaults to [0.0, 0.0].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.robot.DifferentialDriveRobot.wheel_base">
+<span class="sig-name descname"><span class="pre">wheel_base</span></span><a class="headerlink" href="#navis.robot.DifferentialDriveRobot.wheel_base" title="Link to this definition">¶</a></dt>
+<dd><p>The distance between the two wheels. Defaults to 0.15.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.robot.DifferentialDriveRobot.time_step">
+<span class="sig-name descname"><span class="pre">time_step</span></span><a class="headerlink" href="#navis.robot.DifferentialDriveRobot.time_step" title="Link to this definition">¶</a></dt>
+<dd><p>The simulation or control time step. Defaults to 0.1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">v</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">omega</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">wheel_velocities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">wheel_base</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.15</span></em><a class="headerlink" href="#id10" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">time_step</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.1</span></em><a class="headerlink" href="#id11" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.robot.DifferentialDriveRobot.update_from_proto">
+<span class="sig-name descname"><span class="pre">update_from_proto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../navis.messages.html#navis.messages.Measurement" title="robot_comms_pb2.Measurement"><span class="pre">Measurement</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/robot.html#DifferentialDriveRobot.update_from_proto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.robot.DifferentialDriveRobot.update_from_proto" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the robot’s state from a Protobuf <cite>Measurement</cite> message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>meas</strong> (<a class="reference internal" href="../navis.messages.html#navis.messages.Measurement" title="navis.messages.Measurement"><em>Measurement</em></a>) – The Protobuf message from the robot.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.robot.DifferentialDriveRobot.set_velocities">
+<span class="sig-name descname"><span class="pre">set_velocities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/robot.html#DifferentialDriveRobot.set_velocities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.robot.DifferentialDriveRobot.set_velocities" title="Link to this definition">¶</a></dt>
+<dd><p>Sets target velocities and calculates the required wheel speeds.</p>
+<p>This method applies inverse kinematics to translate a desired body
+velocity (linear <cite>v</cite> and angular <cite>omega</cite>) into the necessary
+velocities for the left and right wheels to achieve that motion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – The target linear velocity.</p></li>
+<li><p><strong>omega</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – The target angular velocity.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-navis.server">
+<span id="navis-server-module"></span><h2>navis.server module<a class="headerlink" href="#module-navis.server" title="Link to this heading">¶</a></h2>
+<p>FastAPI server for managing and communicating with robots over WebSockets.
+It uses Protobuf for message serialization over the WebSocket connection.
+Install <cite>navis</cite> and run navis-server in the command line.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.server.lifespan">
+<span class="sig-prename descclassname"><span class="pre">navis.server.</span></span><span class="sig-name descname"><span class="pre">lifespan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FastAPI</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/server.html#lifespan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.server.lifespan" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.server.robot_ws">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.server.</span></span><span class="sig-name descname"><span class="pre">robot_ws</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">websocket</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">WebSocket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">robot_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/server.html#robot_ws"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.server.robot_ws" title="Link to this definition">¶</a></dt>
+<dd><p>Manages the WebSocket lifecycle for a single robot client.</p>
+<p>This function handles the initial registration of a robot, listens for incoming
+measurement data, and ensures that any queued commands are sent upon connection.
+It also manages graceful disconnection and error handling.</p>
+<p>The communication protocol is as follows:
+1.  Client connects to the WebSocket.
+2.  Client sends a <cite>ClientToServer</cite> Protobuf message containing a <cite>Register</cite> payload.
+3.  Server validates the registration and adds the robot to the registry.
+4.  Client periodically sends <cite>ClientToServer</cite> messages with <cite>Measurement</cite> payloads.
+5.  Server can send <cite>MoveCommand</cite> Protobuf messages to the client at any time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>websocket</strong> (<em>WebSocket</em>) – The WebSocket connection instance provided by FastAPI.</p></li>
+<li><p><strong>robot_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The unique identifier for the robot, passed from the URL path.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If the first message is not a valid registration message,
+    if the robot_id in the registration message does not match the URL,
+    or if the robot_type is unknown.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.server.move_robot">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.server.</span></span><span class="sig-name descname"><span class="pre">move_robot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/server.html#move_robot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.server.move_robot" title="Link to this definition">¶</a></dt>
+<dd><p>Receives a move command and sends it to a specified robot.</p>
+<p>This endpoint accepts a JSON payload to control a robot’s movement.
+If the target robot is currently connected via WebSocket, the command is
+sent immediately. If the robot is not connected, the command is queued
+and will be sent the next time it connects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>command</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a>) – A dictionary containing the command parameters.
+Expected keys: ‘robot_id’ (str), ‘v’ (float, optional),
+‘omega’ (float, optional).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A confirmation of the action taken (sent or queued) or an</dt><dd><p>error response with an appropriate HTTP status code (400 for bad
+request, 404 for robot not found).</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSONResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.server.get_robot_state">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.server.</span></span><span class="sig-name descname"><span class="pre">get_robot_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/server.html#get_robot_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.server.get_robot_state" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieves the last reported state for a specific robot.</p>
+<p>Queries the in-memory registry for a robot’s last known measurement data.
+The data is returned as a JSON object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>robot_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The unique identifier of the robot, from the URL path.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>A JSON object containing the latest measurement data</dt><dd><p>(e.g., position, velocity) converted from its Protobuf format.
+Returns a 404 error if the robot ID is not found in the registry.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSONResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.server.main">
+<span class="sig-prename descclassname"><span class="pre">navis.server.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/server.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.server.main" title="Link to this definition">¶</a></dt>
+<dd><p>Main function to run the Uvicorn server, callable by the entry point.</p>
+</dd></dl>
+
+</section>
+<section id="module-navis.visualizer">
+<span id="navis-visualizer-module"></span><h2>navis.visualizer module<a class="headerlink" href="#module-navis.visualizer" title="Link to this heading">¶</a></h2>
+<p>Command-line script for real-time robot visualization.</p>
+<p>This script uses the Navis API to fetch a robot’s state and displays it
+using Matplotlib. It is designed to be run from the command line after the
+‘navis’ package is installed.</p>
+<dl>
+<dt>Example Usage:</dt><dd><ul class="simple">
+<li><p>Visualize <cite>robot_001</cite> connecting to the server at localhost:8000</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="gp">&gt;&gt;&gt; </span><span class="n">navis</span><span class="o">-</span><span class="n">visualizer</span> <span class="o">--</span><span class="n">robot</span><span class="o">-</span><span class="nb">id</span> <span class="n">robot_001</span>
+</span></pre></div>
+</div>
+<ul class="simple">
+<li><p>Visualize a different robot on a remote server</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="gp">&gt;&gt;&gt; </span><span class="n">navis</span><span class="o">-</span><span class="n">visualizer</span> <span class="o">--</span><span class="n">robot</span><span class="o">-</span><span class="nb">id</span> <span class="n">robot_002</span> <span class="o">--</span><span class="n">host</span> <span class="mf">192.168.1.100</span> <span class="o">--</span><span class="n">port</span> <span class="mi">9999</span>
+</span></pre></div>
+</div>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.visualizer.state_fetcher_loop">
+<span class="sig-prename descclassname"><span class="pre">navis.visualizer.</span></span><span class="sig-name descname"><span class="pre">state_fetcher_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval_s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/visualizer.html#state_fetcher_loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.visualizer.state_fetcher_loop" title="Link to this definition">¶</a></dt>
+<dd><p>Continuously fetches state in a background thread.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.visualizer.main">
+<span class="sig-prename descclassname"><span class="pre">navis.visualizer.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/visualizer.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.visualizer.main" title="Link to this definition">¶</a></dt>
+<dd><p>Parses arguments, sets up the plot, and runs the animation.</p>
+</dd></dl>
+
+</section>
+<section id="module-navis">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-navis" title="Link to this heading">¶</a></h2>
+<p>Navis Robotics Communication API</p>
+<p>This package provides a high-level Python interface for controlling and
+monitoring robots connected to the Navis server.</p>
+<dl class="simple">
+<dt>To get started, configure the server address:</dt><dd><p>import navis
+navis.set_server_address(“your_server_ip”)</p>
+</dd>
+<dt>Then, use the API functions to interact with your robots:</dt><dd><p>state = navis.get_state(“robot_001”)
+navis.move(“robot_001”, linear_vel=0.5)</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.set_server_address">
+<span class="sig-prename descclassname"><span class="pre">navis.</span></span><span class="sig-name descname"><span class="pre">set_server_address</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4321</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#set_server_address"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.set_server_address" title="Link to this definition">¶</a></dt>
+<dd><p>Programmatically sets the server address for all subsequent API calls.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.get_rest_api_uri">
+<span class="sig-prename descclassname"><span class="pre">navis.</span></span><span class="sig-name descname"><span class="pre">get_rest_api_uri</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/navis/api.html#get_rest_api_uri"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.get_rest_api_uri" title="Link to this definition">¶</a></dt>
+<dd><p>Constructs the base URI for the REST API.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.get_websocket_uri">
+<span class="sig-prename descclassname"><span class="pre">navis.</span></span><span class="sig-name descname"><span class="pre">get_websocket_uri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../_modules/navis/api.html#get_websocket_uri"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.get_websocket_uri" title="Link to this definition">¶</a></dt>
+<dd><p>Constructs the full WebSocket URI for a specific robot.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.get_state">
+<span class="sig-prename descclassname"><span class="pre">navis.</span></span><span class="sig-name descname"><span class="pre">get_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="../_modules/navis/api.html#get_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.get_state" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.move">
+<span class="sig-prename descclassname"><span class="pre">navis.</span></span><span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear_vel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular_vel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#move"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.move" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.RobotConnection">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.</span></span><span class="sig-name descname"><span class="pre">RobotConnection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">robot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">robot_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><span class="pre">object</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#RobotConnection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.RobotConnection" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Manages a persistent real-time connection to a robot on the server.</p>
+<p>This class provides a “plug-and-play” interface. You provide an object
+that represents your robot’s logic, and this class handles the WebSocket
+connection, registration, sending state updates, and receiving commands
+in the background.</p>
+<p>The provided <cite>robot_object</cite> must have two methods:
+- <cite>get_measurement()</cite>: Must return a Protobuf <cite>Measurement</cite> object.
+- <cite>handle_command(cmd)</cite>: Will be called with a Protobuf <cite>MoveCommand</cite> object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>robot_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The unique ID of the robot.</p></li>
+<li><p><strong>robot_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The type string (e.g., “DifferentialDriveRobot”).</p></li>
+<li><p><strong>robot_object</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><em>object</em></a>) – An instance of your robot’s logic class.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.RobotConnection.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#RobotConnection.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.RobotConnection.start" title="Link to this definition">¶</a></dt>
+<dd><p>Starts the robot connection loop in the background.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.RobotConnection.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#RobotConnection.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.RobotConnection.stop" title="Link to this definition">¶</a></dt>
+<dd><p>Stops the robot connection loop.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.ServerAddress">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.</span></span><span class="sig-name descname"><span class="pre">ServerAddress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4321</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#ServerAddress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.ServerAddress" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A dataclass to hold server connection details.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.ServerAddress.host">
+<span class="sig-name descname"><span class="pre">host</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'localhost'</span></em><a class="headerlink" href="#navis.ServerAddress.host" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.ServerAddress.port">
+<span class="sig-name descname"><span class="pre">port</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4321</span></em><a class="headerlink" href="#navis.ServerAddress.port" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.BaseRobot">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.</span></span><span class="sig-name descname"><span class="pre">BaseRobot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_measurement:</span> <span class="pre">~robot_comms_pb2.Measurement</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ws:</span> <span class="pre">~starlette.websockets.WebSocket</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock:</span> <span class="pre">~asyncio.locks.Lock</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/robot.html#BaseRobot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.BaseRobot" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract base class representing a generic robot.</p>
+<p>This dataclass defines a common interface and shared attributes for all robot
+types managed by the server. It includes basic pose information, server-side
+connection details, and an abstract method for state updates.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.BaseRobot.robot_id">
+<span class="sig-name descname"><span class="pre">robot_id</span></span><a class="headerlink" href="#navis.BaseRobot.robot_id" title="Link to this definition">¶</a></dt>
+<dd><p>The unique identifier for the robot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.BaseRobot.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#navis.BaseRobot.x" title="Link to this definition">¶</a></dt>
+<dd><p>The robot’s x-coordinate in a global frame. Defaults to 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.BaseRobot.y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#navis.BaseRobot.y" title="Link to this definition">¶</a></dt>
+<dd><p>The robot’s y-coordinate in a global frame. Defaults to 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.BaseRobot.theta">
+<span class="sig-name descname"><span class="pre">theta</span></span><a class="headerlink" href="#navis.BaseRobot.theta" title="Link to this definition">¶</a></dt>
+<dd><p>The robot’s orientation (angle) in a global frame.
+Defaults to 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.BaseRobot.last_measurement">
+<span class="sig-name descname"><span class="pre">last_measurement</span></span><a class="headerlink" href="#navis.BaseRobot.last_measurement" title="Link to this definition">¶</a></dt>
+<dd><p>The last raw Protobuf
+measurement message received from the robot. Defaults to None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="../navis.messages.html#navis.messages.Measurement" title="navis.messages.Measurement">Measurement</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.BaseRobot.ws">
+<span class="sig-name descname"><span class="pre">ws</span></span><a class="headerlink" href="#navis.BaseRobot.ws" title="Link to this definition">¶</a></dt>
+<dd><p>The active WebSocket connection for this
+robot, if currently connected. Defaults to None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[WebSocket]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.BaseRobot.lock">
+<span class="sig-name descname"><span class="pre">lock</span></span><a class="headerlink" href="#navis.BaseRobot.lock" title="Link to this definition">¶</a></dt>
+<dd><p>An asyncio lock to ensure thread-safe access to
+the robot’s attributes, as multiple server tasks might access them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/asyncio-sync.html#asyncio.Lock" title="(in Python v3.13)">asyncio.Lock</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">last_measurement</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../navis.messages.html#navis.messages.Measurement" title="robot_comms_pb2.Measurement"><span class="pre">Measurement</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id12" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">theta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#id13" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.BaseRobot.update_from_proto">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_from_proto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../navis.messages.html#navis.messages.Measurement" title="robot_comms_pb2.Measurement"><span class="pre">Measurement</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/robot.html#BaseRobot.update_from_proto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.BaseRobot.update_from_proto" title="Link to this definition">¶</a></dt>
+<dd><p>Abstract method to update the robot’s state from a Protobuf message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>meas</strong> (<a class="reference internal" href="../navis.messages.html#navis.messages.Measurement" title="navis.messages.Measurement"><em>Measurement</em></a>) – The Protobuf message containing new state data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">ws</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">WebSocket</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id15">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id16">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">robot_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#id17" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id18">
+<span class="sig-name descname"><span class="pre">lock</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Lock</span></em><a class="headerlink" href="#id18" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.DifferentialDriveRobot">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.</span></span><span class="sig-name descname"><span class="pre">DifferentialDriveRobot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_measurement:</span> <span class="pre">~robot_comms_pb2.Measurement</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ws:</span> <span class="pre">~starlette.websockets.WebSocket</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lock:</span> <span class="pre">~asyncio.locks.Lock</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wheel_velocities:</span> <span class="pre">~typing.List[float]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wheel_base:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_step:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/robot.html#DifferentialDriveRobot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.DifferentialDriveRobot" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../navis.html#navis.robot.BaseRobot" title="navis.robot.BaseRobot"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseRobot</span></code></a></p>
+<p>Represents a two-wheeled differential drive robot.</p>
+<p>Inherits from <cite>BaseRobot</cite> and adds state and properties specific to a
+differential drive configuration, such as linear and angular velocities.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.DifferentialDriveRobot.v">
+<span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#navis.DifferentialDriveRobot.v" title="Link to this definition">¶</a></dt>
+<dd><p>The robot’s forward linear velocity. Defaults to 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.DifferentialDriveRobot.omega">
+<span class="sig-name descname"><span class="pre">omega</span></span><a class="headerlink" href="#navis.DifferentialDriveRobot.omega" title="Link to this definition">¶</a></dt>
+<dd><p>The robot’s angular velocity. Defaults to 0.0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.DifferentialDriveRobot.wheel_velocities">
+<span class="sig-name descname"><span class="pre">wheel_velocities</span></span><a class="headerlink" href="#navis.DifferentialDriveRobot.wheel_velocities" title="Link to this definition">¶</a></dt>
+<dd><p>The individual velocities of the left
+and right wheels. Defaults to [0.0, 0.0].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.DifferentialDriveRobot.wheel_base">
+<span class="sig-name descname"><span class="pre">wheel_base</span></span><a class="headerlink" href="#navis.DifferentialDriveRobot.wheel_base" title="Link to this definition">¶</a></dt>
+<dd><p>The distance between the two wheels. Defaults to 0.15.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.DifferentialDriveRobot.time_step">
+<span class="sig-name descname"><span class="pre">time_step</span></span><a class="headerlink" href="#navis.DifferentialDriveRobot.time_step" title="Link to this definition">¶</a></dt>
+<dd><p>The simulation or control time step. Defaults to 0.1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id19">
+<span class="sig-name descname"><span class="pre">omega</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.DifferentialDriveRobot.set_velocities">
+<span class="sig-name descname"><span class="pre">set_velocities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/robot.html#DifferentialDriveRobot.set_velocities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.DifferentialDriveRobot.set_velocities" title="Link to this definition">¶</a></dt>
+<dd><p>Sets target velocities and calculates the required wheel speeds.</p>
+<p>This method applies inverse kinematics to translate a desired body
+velocity (linear <cite>v</cite> and angular <cite>omega</cite>) into the necessary
+velocities for the left and right wheels to achieve that motion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – The target linear velocity.</p></li>
+<li><p><strong>omega</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – The target angular velocity.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id20">
+<span class="sig-name descname"><span class="pre">time_step</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.1</span></em><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.DifferentialDriveRobot.update_from_proto">
+<span class="sig-name descname"><span class="pre">update_from_proto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../navis.messages.html#navis.messages.Measurement" title="robot_comms_pb2.Measurement"><span class="pre">Measurement</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/robot.html#DifferentialDriveRobot.update_from_proto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.DifferentialDriveRobot.update_from_proto" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the robot’s state from a Protobuf <cite>Measurement</cite> message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>meas</strong> (<a class="reference internal" href="../navis.messages.html#navis.messages.Measurement" title="navis.messages.Measurement"><em>Measurement</em></a>) – The Protobuf message from the robot.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id21">
+<span class="sig-name descname"><span class="pre">v</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0</span></em><a class="headerlink" href="#id21" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id22">
+<span class="sig-name descname"><span class="pre">wheel_base</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.15</span></em><a class="headerlink" href="#id22" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id23">
+<span class="sig-name descname"><span class="pre">wheel_velocities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id23" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.DifferentialDriveRobot.robot_id">
+<span class="sig-name descname"><span class="pre">robot_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#navis.DifferentialDriveRobot.robot_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.DifferentialDriveRobot.lock">
+<span class="sig-name descname"><span class="pre">lock</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Lock</span></em><a class="headerlink" href="#navis.DifferentialDriveRobot.lock" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="modules.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">navis</div></div>
+    </a>
+  </div><div class="navigation-next">
+    <a href="navis.messages.html">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">navis.messages package</div>
+      </div>
+      <i class="i-lucide chevron-right"></i>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p></p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/shibuya.js?v=e730760c"></script></body>
+</html>
