@@ -11,10 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-      - name: Install dependencies
       - name: Install uv
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
-      - name: Install dependencies
+      - name: Install project dependencies
         run: uv install
       - name: Generate API docs for navis
         run: uv run sphinx-apidoc -o docs/source/navis navis
