@@ -7,7 +7,7 @@ Make sure you have both Python (≥3.10) and uv installed before proceeding.
 Quick Setup
 -----------
 
-Install `uv` by following the `official installation guide <https://docs.astral.sh/uv/getting-started/installation/>`_. Then, clone the repository and install it in editable mode:
+Install ``uv`` by following the `official installation guide <https://docs.astral.sh/uv/getting-started/installation/>`_. Then, clone the repository and install it in editable mode:
 
 .. code-block:: bash
 
@@ -17,7 +17,7 @@ Install `uv` by following the `official installation guide <https://docs.astral.
 
 This will create a virtual environment and install all dependencies defined in `pyproject.toml`.
 
-Alternatively, you can install it directly using `uv`:
+Alternatively, you can install it directly using ``uv``:
 
 .. code-block:: bash
 
