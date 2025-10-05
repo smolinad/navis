@@ -28,8 +28,8 @@ Scripts
 
 Navis installs two helpful CLI scripts for managing experiments:
 
-- `navis-server` — starts the navigation server (the central control node)
-- `navis-visualizer` — runs a live visualizer for connected robots
+- ``navis-server`` — starts the navigation server (the central control node)
+- ``navis-visualizer`` — runs a live visualizer for connected robots
 
 Both are available after installation.
 
