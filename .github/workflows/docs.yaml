@@ -20,11 +20,11 @@ jobs:
         with:
           python-version: 3.11
 
-      # 3. Install Sphinx and Shibuya theme directly
+      # 3. Install dependencies + Shibuya theme
       - name: Install dependencies
         run: |
-          pip install sphinx
-          pip install shibuya
+          pip install -r requirements.txt
+          pip install shibuya-sphinx-theme
 
       # 4. Build Sphinx docs
       - name: Build Docs
