@@ -6,8 +6,7 @@
    introduction
    installation
    usage
-   navis
-   modules
+   navis/modules
 
 
 Introduction
