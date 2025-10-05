@@ -6,7 +6,6 @@
    introduction
    installation
    usage
-   api/modules
    navis
    modules
 
