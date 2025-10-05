@@ -1,5 +1,4 @@
-"""Navis API
-
+"""
 This package provides a high-level Python interface for controlling and
 monitoring robots connected to the Navis server.
 
