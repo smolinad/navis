@@ -5,7 +5,6 @@ Makes the `Protobuf` message classes directly importable from the package.
 This file imports the specific message classes from the auto-generated
 `robot_comms_pb2.py` file. This allows for cleaner imports elsewhere in the
 package, for example:
-
     >>> from navis.messages import Measurement
 
 To regenerate the `robot_comms_pb2.py` file after modifying the `robot_comms.proto`
