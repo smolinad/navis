@@ -67,6 +67,7 @@ Once the simulated robot is running, you can command it from another script or R
    import time
    import navis
 
+   navis.set_server_address("192.168.1.188")
    ROBOT_ID = "robot001"
 
    path = [
