@@ -1,15 +1,15 @@
-"""Navis Robotics Communication API
+"""Navis API
 
 This package provides a high-level Python interface for controlling and
 monitoring robots connected to the Navis server.
 
 To get started, configure the server address:
-    import navis
-    navis.set_server_address("your_server_ip")
+>>> import navis
+>>> navis.set_server_address("your_server_ip")
 
 Then, use the API functions to interact with your robots:
-    state = navis.get_state("robot_001")
-    navis.move("robot_001", linear_vel=0.5)
+>>> state = navis.get_state("robot_001")
+>>> navis.move("robot_001", linear_vel=0.5)
 """
 
 # Promote the core API functions and classes to the top-level namespace.
