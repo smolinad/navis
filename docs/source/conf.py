@@ -1,3 +1,9 @@
+import os
+import sys
+
+# Add the repo root so Sphinx can find 'navis'
+sys.path.insert(0, os.path.abspath("../../"))
+
 # -- Project information -----------------------------------------------------
 
 project = "Navis"
