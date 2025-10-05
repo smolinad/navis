@@ -94,5 +94,5 @@ The Navis API will automatically route commands to the correct client.
 Next Steps
 ----------
 
-Explore the :doc:`api/modules` reference for detailed class and function documentation.
+Explore the :doc:`navis/modules` reference for detailed class and function documentation.
 
