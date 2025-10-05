@@ -31,13 +31,10 @@ html_theme = "shibuya"
 
 html_static_path = ["_static"]
 
-html_options = {
-    "nav_links": [
-        {
-            "title": "GitHub",
-            "url": "https://github.com/smolinad/navis"
-        },
-    ]
+html_theme_options = {
+     "nav_links": [
+         {"title": "GitHub", "url": "https://github.com/smolinad/navis"},
+     ]
 }
 
 html_css_files = [
