@@ -7,7 +7,7 @@ Make sure you have both Python (≥3.10) and uv installed before proceeding.
 Quick Setup
 -----------
 
-Clone the repository and install it in editable mode:
+Install `uv` by following the `official installation guide <https://docs.astral.sh/uv/getting-started/installation/>`_. Then, clone the repository and install it in editable mode:
 
 .. code-block:: bash
 
@@ -37,7 +37,7 @@ To confirm the setup, run:
 
 .. code-block:: bash
 
-   navis-server --help
+   uv run navis-server
 
 Troubleshooting
 ---------------
