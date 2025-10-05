@@ -35,6 +35,12 @@ html_theme_options = {
   "github_url": "https://github.com/smolinad/navis"
 }
 
+html_context = {
+    "source_type": "github",
+    "source_user": "smolinad",
+    "source_repo": "navis",
+}
+
 html_css_files = [
     'custom.css',
 ]
