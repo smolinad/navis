@@ -28,10 +28,10 @@ For example:
 .. code-block:: bash
 
    # Start the Navis server on the host machine
-   navis-server
+   uv run navis-server
 
    # (Optional) Launch the visualizer on the client machine
-   navis-visualizer --robot-id robot001 --host 199.199.1.1 
+   uv run navis-visualizer --robot-id robot001 --host 199.199.1.1 
 
 Then, in Python:
 
