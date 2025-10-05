@@ -84,7 +84,7 @@ Once the simulated robot is running, you can command it from another script or R
 
 
 For more details check out the test example: 
-`robot_sim.py <../../navis/tests/robot_sim.py>`_
+`robot_sim.py <../navis/tests/robot_sim.py>`_
 
 Tip
 ---
