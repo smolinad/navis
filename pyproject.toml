@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "navis"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.118.0",
+    "grpcio-tools>=1.75.1",
+    "matplotlib>=3.10.6",
+    "numpy>=2.3.3",
+    "pyyaml>=6.0.3",
+    "requests>=2.32.5",
+    "shibuya>=2025.9.25",
+    "sphinx>=8.2.3",
+    "uvicorn[standard]>=0.37.0",
+    "websockets>=15.0.1",
+]
+
+[project.scripts]
+navis-server = "navis.server:main"
+navis-visualizer = "navis.visualizer:main"

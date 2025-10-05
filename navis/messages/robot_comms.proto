@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package robot;
+
+message DifferentialDriveState {
+  double v = 1;
+  double omega = 2;
+  repeated float wheel_velocities = 3;
+}
+
+message SpotState {
+  double body_height = 1;
+  bool is_standing = 2;
+}
+
+message MoveCommand {
+  double v = 1;
+  double omega = 2;
+}
+
+// The robot sends this message ONCE upon connection.
+message Register {
+  string robot_id = 1;
+  string robot_type = 2;
+}
+
+message Measurement {
+  double x = 1;
+  double y = 2;
+  double theta = 3;
+
+  oneof robot_specific_state {
+    DifferentialDriveState diff_drive_state = 10;
+    SpotState spot_state = 11;
+  }
+}
+
+message ClientToServer {
+  oneof payload {
+    Register register = 1;
+    Measurement measurement = 2;
+  }
+}
