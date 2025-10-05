@@ -1,17 +1,17 @@
-name: Deploy Docs
+name: Deploy Docs to main branch
 
 on:
   push:
     branches:
-      - main
+      - main  # Trigger on pushes to main branch
 
 jobs:
   deploy-docs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout repository
-      - name: Checkout repo
+      # 1. Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       # 2. Set up Python
@@ -20,20 +20,22 @@ jobs:
         with:
           python-version: 3.11
 
-      # 3. Install Sphinx and Shibuya theme directly
+      # 3. Install dependencies (Sphinx + Shibuya theme)
       - name: Install dependencies
         run: |
           pip install sphinx
           pip install shibuya
 
-      # 4. Build Sphinx docs
+      # 4. Build the Sphinx docs
       - name: Build Docs
         run: sphinx-build -b html docs/source docs/build
 
-      # 5. Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
+      # 5. Deploy HTML to the root of main branch
+      - name: Deploy to main branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/build
+          publish_branch: main  # Deploy directly to main
+          force_orphan: false   # Keep commit history
           clean: true
