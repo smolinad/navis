@@ -11,13 +11,13 @@ and command dispatch.
 
 .. code-block:: bash
 
-   navis-server
+   uv run navis-server
 
 If desired, you can also run the visualizer in a separate terminal:
 
 .. code-block:: bash
 
-   navis-visualizer --robot-id robot001 --host 199.199.1.1 
+   uv run navis-visualizer --robot-id robot001 --host 199.199.1.1 
 
 Creating a Simulated Robot
 --------------------------
