@@ -1,11 +1,17 @@
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 3
+   :caption: Getting Started:
    :hidden:
 
    introduction
    installation
    usage
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Development:
+   :hidden:
+
    navis/navis
 
 
