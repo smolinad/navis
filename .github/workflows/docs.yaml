@@ -16,9 +16,9 @@ jobs:
       - name: Install project dependencies
         run: uv sync
       - name: Generate API docs for navis
-        run: uv run sphinx-apidoc -o docs/source/navis navis
+        run: uv run sphinx-apidoc -o docs/navis navis
       - name: Build Sphinx docs
-        run: uv run sphinx-build -b html docs/source docs/build
+        run: uv run sphinx-build -b html docs/ build/
       - name: Disable Jekyll
         run: touch docs/build/.nojekyll
       - name: Deploy to GitHub Pages
