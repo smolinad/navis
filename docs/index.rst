@@ -1,6 +1,6 @@
 .. toctree::
    :maxdepth: 3
-   :caption: Getting Started:
+   :caption: Getting Started
    :hidden:
 
    introduction
@@ -9,7 +9,7 @@
 
 .. toctree::
    :maxdepth: 2
-   :caption: Development:
+   :caption: Development
    :hidden:
 
    navis/navis
