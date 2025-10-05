@@ -41,6 +41,14 @@ html_context = {
     "source_repo": "navis",
 }
 
+html_context = {
+    "source_type": "github|gitlab|bitbucket",
+    "source_user": "smolinad",
+    "source_repo": "navis",
+    "source_version": "main",  # Optional
+    "source_docs_path": "/docs/",  # Optional
+}
+
 html_css_files = [
     'custom.css',
 ]
