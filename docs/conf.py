@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.abspath("../"))
 
 # -- Project information -----------------------------------------------------
 
-project = "Navis"
+project = "[•‿•]"
 copyright = ""
 author = "EML 5808 - Spring 2025"
 release = "0.1.0"
