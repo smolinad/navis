@@ -14,7 +14,7 @@ Navis
 
 .. container:: video-1
   .. video:: _static/demo.mp4
-    :align: default
+      :align: default
 
 .. toctree::
    :maxdepth: 4
