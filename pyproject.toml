@@ -15,6 +15,7 @@ dependencies = [
     "numpy>=2.3.3",
     "shibuya>=2025.9.25",
     "sphinx>=8.2.3",
+    "sphinx-design>=0.6.1",
 ]
 
 [project.scripts]
