@@ -1,32 +1,24 @@
 """
-Navis API (Zenoh + msgspec)
+Navis API
 ===========================
 
 High-level Python interface for interacting with robots using Zenoh.
 
 This module provides two main functionalities:
 
-1.  A `RobotClient` class for a robot or simulator to connect to the
+1.  A ``RobotClient`` class for a robot or simulator to connect to the
     network, publish its state, and receive commands.
 
-2.  A `RobotController` class for external scripts to connect to the
+2.  A ``RobotController`` class for external scripts to connect to the
     network and send commands to a specific robot.
 """
 
 import threading
 import time
-
 import msgspec
 import zenoh
 from zenoh import Config
-
-# Assumes your message definitions are in a separate file
 from navis.messages import Measurement, MoveCommand, Register
-
-# =====================================================================
-# 1. API FOR ROBOTS (The Client)
-# =====================================================================
-
 
 class RobotClient:
     """High-level synchronous client for a robot to connect to the network."""
@@ -93,12 +85,6 @@ class RobotClient:
         if self._thread:
             self._thread.join()
         self.session.close()
-
-
-# =====================================================================
-# 2. API FOR CONTROLLERS
-# =====================================================================
-
 
 class RobotController:
     """A client for sending movement commands to a specific robot."""
