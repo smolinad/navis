@@ -23,7 +23,7 @@ Quick Setup
    cd navis
    uv sync
 
-This will create a virtual environment and install all dependencies defined in `pyproject.toml`.
+This will create a virtual environment and install all dependencies defined in ``pyproject.toml``.
 
 Alternatively, you can install it directly using ``uv``:
 
