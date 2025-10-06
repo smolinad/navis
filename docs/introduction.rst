@@ -13,7 +13,7 @@ Key Features
 ------------
 
 - 🚀 **Plug-and-Play Architecture** — connect any robot object implementing a simple interface.
-- 🌐 **Client–Server Model** — robots communicate with a central `navis-server` over the network.
+- 🌐 **Router Model** — robots communicate with a central `navis-server` over the network.
 - 🔧 **Extensible API** — designed to be clear, composable, and easy to extend.
 - 🧩 **Visualization Tools** — includes a built-in visualizer for real-time state monitoring.
 
@@ -29,16 +29,16 @@ For example:
 .. code-block:: bash
 
     # Start the Navis server on host machine
-    uv navis-server
+    uv run navis-server
 
     # (Optional) Launch the visualizer on client machine
-    uv navis-visualizer --dims 30
+    uv run navis-visualizer --dims 30
 
 Then, if ``robot001`` is already connected to the server, you can control it in Python through the API: 
 
 .. code-block:: python
 
-    import navis.api 
+    import navis
     import time
 
     # Initialize a controller for a specific robot
