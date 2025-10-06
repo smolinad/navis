@@ -13,7 +13,7 @@ Key Features
 ------------
 
 - 🚀 **Plug-and-Play Architecture** — connect any robot object implementing a simple interface.
-- 🌐 **Router Model** — robots communicate with a central `navis-server` over the network.
+- 🌐 **Router Model** — robots communicate with a central `navis-router` over the network.
 - 🔧 **Extensible API** — designed to be clear, composable, and easy to extend.
 - 🧩 **Visualization Tools** — includes a built-in visualizer for real-time state monitoring.
 
@@ -29,7 +29,7 @@ For example:
 .. code-block:: bash
 
     # Start the Navis server on host machine
-    uv run navis-server
+    uv run navis-router
 
     # (Optional) Launch the visualizer on client machine
     uv run navis-visualizer --dims 30

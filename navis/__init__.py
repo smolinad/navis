@@ -21,20 +21,17 @@ To get started, use the API classes  to interact with your robots:
 
 # Promote the core API functions and classes to the top-level namespace.
 from .api import (
-    RobotClient,
-    RobotController
+    DeviceClient,
+    DeviceController,
+    list_devices,
 )
 
 # Promote the base robot classes for users who want to create their own robots.
-from .robot import (
-    BaseRobot,
-    DifferentialDriveRobot
-)
 
 # Make the messages sub-package directly accessible.
 from .messages import (
     Measurement,
-    MoveCommand,
+    Move,
     Register,
     DifferentialDriveState,
     SpotState
@@ -45,10 +42,6 @@ __all__ = [
     # From api.py
     "RobotClient",
     "RobotController",
-
-    # From robot.py
-    "BaseRobot",
-    "DifferentialDriveRobot",
 
     # Sub-package
     "messages"

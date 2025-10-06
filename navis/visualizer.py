@@ -1,10 +1,11 @@
 """
-Navis Zenoh Multi-Robot Visualizer
+Navis Multi-Robot Visualizer
 ==================================
 
 Visualizes the live state of all robots in the arena using Zenoh Pub/Sub.
 Discovers and displays robots automatically by listening to wildcard topics.
 """
+
 import argparse
 import math
 import threading

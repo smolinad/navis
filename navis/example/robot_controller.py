@@ -1,20 +1,25 @@
 """
-Navis Zenoh Robot Controller (Scripted Example)
+Navis Robot Controller
 ===============================================
 
 A script that sends a sequence of movement commands to a robot using
-the high-level `navis.api.RobotController`.
+the high-level ``navis.api.DeviceController``.
+
+This script automatically discovers the robot to control. It polls the
+network for a few seconds and will only run if it finds exactly one robot.
 """
+import sys
 import time
-import navis.api as navis
+import navis
+from navis.categories import ROBOTS
 
 
-def scripted_moves(controller: navis.RobotController):
+def scripted_moves(controller: navis.DeviceController):
     """
     Executes a predefined sequence of movements using the given controller.
 
     Args:
-        controller: An initialized RobotController instance.
+        controller: An initialized DeviceController instance.
     """
     path = [
         # (v, omega, duration_seconds)
@@ -39,19 +44,34 @@ def scripted_moves(controller: navis.RobotController):
 
 
 if __name__ == "__main__":
-    ROBOT_ID = "robot001"
+    print("[CONTROL] Discovering a single robot (waiting up to 5s)...")
 
-    # Initialize a controller for the specific robot
-    controller = navis.RobotController(robot_id=ROBOT_ID)
+    # The API call is now a single, powerful line. The loop is gone.
+    available_robots = navis.list_devices(
+        category=ROBOTS,
+        timeout_seconds=5
+    )
+
+    # Check the results (which is now a dictionary).
+    if not available_robots:
+        print("[ERROR] No robots of the correct type found. Exiting.")
+        sys.exit(1)
+
+    robot_id_to_control = None
+    if len(available_robots) >= 1:
+        robot_id_to_control = list(available_robots.keys())[0]
+        print(f"[CONTROL] Found robot: {robot_id_to_control}")
+
+    # Initialize a controller for the discovered robot.
+    controller = None
+    if robot_id_to_control:
+        controller = navis.DeviceController(device_id=robot_id_to_control)
 
     try:
-        # Run the scripted movement sequence
         scripted_moves(controller)
     except KeyboardInterrupt:
-        # Ensure the robot stops if the script is cancelled
         print("\n[CONTROL] Script interrupted by user. Stopping robot.")
         controller.move(linear_vel=0.0, angular_vel=0.0)
     finally:
-        # Cleanly close the connection to the Zenoh network
         print("[CONTROL] Shutting down controller.")
         controller.close()

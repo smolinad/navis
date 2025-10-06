@@ -20,5 +20,5 @@ dependencies = [
 ]
 
 [project.scripts]
-navis-server = "navis.server:main"
+navis-router = "navis.router:main"
 navis-visualizer = "navis.visualizer:main"

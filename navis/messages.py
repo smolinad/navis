@@ -1,5 +1,5 @@
 import msgspec
-from typing import List, Optional, Union
+from typing import List
 
 
 class DifferentialDriveState(msgspec.Struct, tag="diff_drive"):
@@ -15,25 +15,37 @@ class SpotState(msgspec.Struct, tag="spot"):
     is_standing: bool
 
 
-class MoveCommand(msgspec.Struct):
-    """Command to control robot velocities."""
-    v: float = 0.0
-    omega: float = 0.0
-
-
-class Register(msgspec.Struct):
-    """Robot registration message sent once upon connection."""
-    robot_id: str
-    robot_type: str
+RobotStateTypes = (DifferentialDriveState, SpotState)
 
 
 class Measurement(msgspec.Struct):
     """Robot measurement (state) message.
 
-    The robot-specific state can be either DifferentialDriveState or SpotState,
-    but not both. If no state has been set yet, this field can be None.
+    The `state` field can be any robot-specific state type defined above.
     """
     x: float
     y: float
     theta: float
-    state: Optional[Union[DifferentialDriveState, SpotState]] = None
+    state: object = None  # will decode dynamically using RobotStateTypes
+
+
+class Move(msgspec.Struct):
+    """Command to control robot velocities."""
+    v: float = 0.0
+    omega: float = 0.0
+
+
+class SetGripperCommand(msgspec.Struct):
+    """Command to control a gripper."""
+    position: float = 0.0
+
+
+class PanTiltCommand(msgspec.Struct):
+    """Command to control a pan/tilt unit."""
+    pan: float = 0.0
+    tilt: float = 0.0
+
+
+class Register(msgspec.Struct):
+    """Robot registration message sent once upon connection."""
+    robot_id: str
