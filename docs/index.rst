@@ -14,7 +14,7 @@ Navis
 
 .. container:: video-1
 
-  .. video:: _static/demo.mov
+  .. video:: _static/video.mov
 
 .. toctree::
    :maxdepth: 4
