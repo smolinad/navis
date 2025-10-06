@@ -9,7 +9,7 @@ Navis
 
 .. container:: buttons
 
-    `Docs </navis/introduction/>`_
+    `Docs </navis/introduction>`_
     `GitHub <https://github.com/smolinad/navis>`_
 
 .. container:: video-1
