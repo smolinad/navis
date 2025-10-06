@@ -20,7 +20,7 @@ extensions = [
     "sphinx.ext.autosummary",  # Automatically generate summary tables
     "sphinx.ext.todo",         # Optional: allows .. todo:: directives
     "sphinx.ext.intersphinx",  # For linking to Python or other package docs
-    "sphinx_design",
+    "sphinxcontrib.video",
 ]
 
 templates_path = ["_templates"]
@@ -33,7 +33,7 @@ html_theme = "shibuya"
 html_static_path = ["_static"]
 
 html_theme_options = {
-  "github_url": "https://github.com/smolinad/navis"
+    "github_url": "https://github.com/smolinad/navis"
 }
 
 html_context = {
