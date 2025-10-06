@@ -5,12 +5,11 @@ Navis
 
 .. rst-class:: lead
 
-    Beautiful responsive theme for Sphinx documentation generator. Great supports
-    for Jupyter extensions.
+    Minimal navigation stack for robotics in Python.
 
 .. container:: buttons
 
-    `Docs </introduction/>`_
+    `Docs </navis/introduction/>`_
     `GitHub <https://github.com/smolinad/navis>`_
 
 .. container:: video-1
