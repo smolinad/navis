@@ -20,6 +20,7 @@ extensions = [
     "sphinx.ext.autosummary",  # Automatically generate summary tables
     "sphinx.ext.todo",         # Optional: allows .. todo:: directives
     "sphinx.ext.intersphinx",  # For linking to Python or other package docs
+    "sphinx_design",
 ]
 
 templates_path = ["_templates"]
