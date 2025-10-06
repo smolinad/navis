@@ -1,0 +1,53 @@
+navis package
+=============
+
+Submodules
+----------
+
+navis.api module
+----------------
+
+.. automodule:: navis.api
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+navis.categories module
+-----------------------
+
+.. automodule:: navis.categories
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+navis.messages module
+---------------------
+
+.. automodule:: navis.messages
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+navis.router module
+-------------------
+
+.. automodule:: navis.router
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+navis.visualizer module
+-----------------------
+
+.. automodule:: navis.visualizer
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: navis
+   :members:
+   :show-inheritance:
+   :undoc-members:

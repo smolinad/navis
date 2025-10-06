@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="violet" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>navis.messages - [•‿•] 0.1.0 documentation</title><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b1a1f93b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=bb284d7b" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9d657d0c" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="navis.messages"/>
+<meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../../index.html">
+      
+      
+      <strong>[•‿•]</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials">
+  <a href="https://github.com/smolinad/navis" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Usage</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../navis/navis.html">navis package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/smolinad/navis"
+  data-type="github" data-user="smolinad" data-repo="navis">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </span>
+  <span class="flex-grow px-2 break-all">
+    
+    
+      <span>smolinad/navis</span>
+    
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <iconify-icon icon="lucide:star"></iconify-icon>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <iconify-icon icon="lucide:git-fork"></iconify-icon>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../index.html"><span itemprop="name">[•‿•]</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">Module code</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="2" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">navis.messages</strong>
+        <meta itemprop="position" content="3" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <h1>Source code for navis.messages</h1><div class="highlight"><pre>
+<span></span><span data-line="1"><span class="kn">import</span><span class="w"> </span><span class="nn">msgspec</span>
+</span><span data-line="2"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+</span><span data-line="3">
+</span><span data-line="4">
+<div class="viewcode-block" id="DifferentialDriveState">
+<a class="viewcode-back" href="../../navis/navis.html#navis.messages.DifferentialDriveState">[docs]</a>
+</span><span data-line="5"><span class="k">class</span><span class="w"> </span><span class="nc">DifferentialDriveState</span><span class="p">(</span><span class="n">msgspec</span><span class="o">.</span><span class="n">Struct</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;diff_drive&quot;</span><span class="p">):</span>
+</span><span data-line="6"><span class="w">    </span><span class="sd">&quot;&quot;&quot;State specific to a two-wheeled differential drive robot.&quot;&quot;&quot;</span>
+</span><span data-line="7">    <span class="n">v</span><span class="p">:</span> <span class="nb">float</span>
+</span><span data-line="8">    <span class="n">omega</span><span class="p">:</span> <span class="nb">float</span>
+</span><span data-line="9">    <span class="n">wheel_velocities</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span></div>
+
+</span><span data-line="10">
+</span><span data-line="11">
+<div class="viewcode-block" id="SpotState">
+<a class="viewcode-back" href="../../navis/navis.html#navis.messages.SpotState">[docs]</a>
+</span><span data-line="12"><span class="k">class</span><span class="w"> </span><span class="nc">SpotState</span><span class="p">(</span><span class="n">msgspec</span><span class="o">.</span><span class="n">Struct</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;spot&quot;</span><span class="p">):</span>
+</span><span data-line="13"><span class="w">    </span><span class="sd">&quot;&quot;&quot;State specific to a quadruped robot (Spot).&quot;&quot;&quot;</span>
+</span><span data-line="14">    <span class="n">body_height</span><span class="p">:</span> <span class="nb">float</span>
+</span><span data-line="15">    <span class="n">is_standing</span><span class="p">:</span> <span class="nb">bool</span></div>
+
+</span><span data-line="16">
+</span><span data-line="17">
+</span><span data-line="18"><span class="n">RobotStateTypes</span> <span class="o">=</span> <span class="p">(</span><span class="n">DifferentialDriveState</span><span class="p">,</span> <span class="n">SpotState</span><span class="p">)</span>
+</span><span data-line="19">
+</span><span data-line="20">
+<div class="viewcode-block" id="Measurement">
+<a class="viewcode-back" href="../../navis/navis.html#navis.messages.Measurement">[docs]</a>
+</span><span data-line="21"><span class="k">class</span><span class="w"> </span><span class="nc">Measurement</span><span class="p">(</span><span class="n">msgspec</span><span class="o">.</span><span class="n">Struct</span><span class="p">):</span>
+</span><span data-line="22"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Robot measurement (state) message.</span>
+</span><span data-line="23">
+</span><span data-line="24"><span class="sd">    The `state` field can be any robot-specific state type defined above.</span>
+</span><span data-line="25"><span class="sd">    &quot;&quot;&quot;</span>
+</span><span data-line="26">    <span class="n">x</span><span class="p">:</span> <span class="nb">float</span>
+</span><span data-line="27">    <span class="n">y</span><span class="p">:</span> <span class="nb">float</span>
+</span><span data-line="28">    <span class="n">theta</span><span class="p">:</span> <span class="nb">float</span>
+</span><span data-line="29">    <span class="n">state</span><span class="p">:</span> <span class="nb">object</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># will decode dynamically using RobotStateTypes</span></div>
+
+</span><span data-line="30">
+</span><span data-line="31">
+<div class="viewcode-block" id="Move">
+<a class="viewcode-back" href="../../navis/navis.html#navis.messages.Move">[docs]</a>
+</span><span data-line="32"><span class="k">class</span><span class="w"> </span><span class="nc">Move</span><span class="p">(</span><span class="n">msgspec</span><span class="o">.</span><span class="n">Struct</span><span class="p">):</span>
+</span><span data-line="33"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Command to control robot velocities.&quot;&quot;&quot;</span>
+</span><span data-line="34">    <span class="n">v</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span><span data-line="35">    <span class="n">omega</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span></div>
+
+</span><span data-line="36">
+</span><span data-line="37">
+<div class="viewcode-block" id="SetGripperCommand">
+<a class="viewcode-back" href="../../navis/navis.html#navis.messages.SetGripperCommand">[docs]</a>
+</span><span data-line="38"><span class="k">class</span><span class="w"> </span><span class="nc">SetGripperCommand</span><span class="p">(</span><span class="n">msgspec</span><span class="o">.</span><span class="n">Struct</span><span class="p">):</span>
+</span><span data-line="39"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Command to control a gripper.&quot;&quot;&quot;</span>
+</span><span data-line="40">    <span class="n">position</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span></div>
+
+</span><span data-line="41">
+</span><span data-line="42">
+<div class="viewcode-block" id="PanTiltCommand">
+<a class="viewcode-back" href="../../navis/navis.html#navis.messages.PanTiltCommand">[docs]</a>
+</span><span data-line="43"><span class="k">class</span><span class="w"> </span><span class="nc">PanTiltCommand</span><span class="p">(</span><span class="n">msgspec</span><span class="o">.</span><span class="n">Struct</span><span class="p">):</span>
+</span><span data-line="44"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Command to control a pan/tilt unit.&quot;&quot;&quot;</span>
+</span><span data-line="45">    <span class="n">pan</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span><span data-line="46">    <span class="n">tilt</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span></div>
+
+</span><span data-line="47">
+</span><span data-line="48">
+<div class="viewcode-block" id="Register">
+<a class="viewcode-back" href="../../navis/navis.html#navis.messages.Register">[docs]</a>
+</span><span data-line="49"><span class="k">class</span><span class="w"> </span><span class="nc">Register</span><span class="p">(</span><span class="n">msgspec</span><span class="o">.</span><span class="n">Struct</span><span class="p">):</span>
+</span><span data-line="50"><span class="w">    </span><span class="sd">&quot;&quot;&quot;Robot registration message sent once upon connection.&quot;&quot;&quot;</span>
+</span><span data-line="51">    <span class="n">robot_id</span><span class="p">:</span> <span class="nb">str</span></div>
+
+</span></pre></div>
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p></p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+<a href="https://github.com/smolinad/navis" aria-label="GitHub">
+  <iconify-icon icon="simple-icons:github"></iconify-icon>
+</a></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/shibuya.js?v=e730760c"></script></body>
+</html>

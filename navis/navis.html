@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="violet" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>navis package - [•‿•] 0.1.0 documentation</title><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="Usage" href="../usage.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b1a1f93b" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=bb284d7b" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9d657d0c" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/><meta property="og:title" content="navis package"/>
+<meta name="twitter:card" content="summary"/>
+  </head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="../index.html">
+      
+      
+      <strong>[•‿•]</strong>
+    </a>
+    <div class="sy-head-nav" id="head-nav">
+      <nav class="sy-head-links"></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials">
+  <a href="https://github.com/smolinad/navis" aria-label="GitHub">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </a></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="head-nav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2"></span>
+          <span class="hamburger_3"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-72 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-scrollbar p-6">
+        <div class="globaltoc" data-expand-depth="0"><p class="caption" role="heading" aria-level="3"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+</ul>
+<p class="caption" role="heading" aria-level="3"><span class="caption-text">Development</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">navis package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="lside-overlay js-menu" role="button" aria-label="Close left sidebar" aria-controls="lside" aria-expanded="false"></div>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-lucide close"></i>
+    </button>
+    <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-navis.api">navis.api module</a><ul>
+<li><a class="reference internal" href="#navis-python-api">Navis Python API</a></li>
+<li><a class="reference internal" href="#navis.api.DeviceInterface"><code class="docutils literal notranslate"><span class="pre">DeviceInterface</span></code></a><ul>
+<li><a class="reference internal" href="#navis.api.DeviceInterface.dispatch_command"><code class="docutils literal notranslate">dispatch_command()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.api.PublisherTask"><code class="docutils literal notranslate"><span class="pre">PublisherTask</span></code></a><ul>
+<li><a class="reference internal" href="#navis.api.PublisherTask.topic_suffix"><code class="docutils literal notranslate">topic_suffix</span></code></a></li>
+<li><a class="reference internal" href="#navis.api.PublisherTask.data_provider"><code class="docutils literal notranslate">data_provider</span></code></a></li>
+<li><a class="reference internal" href="#navis.api.PublisherTask.interval_seconds"><code class="docutils literal notranslate">interval_seconds</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate">topic_suffix</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate">data_provider</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate">interval_seconds</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.api.list_devices"><code class="docutils literal notranslate"><span class="pre">list_devices()</span></code></a></li>
+<li><a class="reference internal" href="#navis.api.DeviceClient"><code class="docutils literal notranslate"><span class="pre">DeviceClient</span></code></a><ul>
+<li><a class="reference internal" href="#navis.api.DeviceClient.add_publisher"><code class="docutils literal notranslate">add_publisher()</span></code></a></li>
+<li><a class="reference internal" href="#navis.api.DeviceClient.start"><code class="docutils literal notranslate">start()</span></code></a></li>
+<li><a class="reference internal" href="#navis.api.DeviceClient.close"><code class="docutils literal notranslate">close()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.api.DeviceController"><code class="docutils literal notranslate"><span class="pre">DeviceController</span></code></a><ul>
+<li><a class="reference internal" href="#navis.api.DeviceController.send_command"><code class="docutils literal notranslate">send_command()</span></code></a></li>
+<li><a class="reference internal" href="#navis.api.DeviceController.move"><code class="docutils literal notranslate">move()</span></code></a></li>
+<li><a class="reference internal" href="#navis.api.DeviceController.close"><code class="docutils literal notranslate">close()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-navis.categories">navis.categories module</a></li>
+<li><a class="reference internal" href="#module-navis.messages">navis.messages module</a><ul>
+<li><a class="reference internal" href="#navis.messages.DifferentialDriveState"><code class="docutils literal notranslate"><span class="pre">DifferentialDriveState</span></code></a><ul>
+<li><a class="reference internal" href="#navis.messages.DifferentialDriveState.v"><code class="docutils literal notranslate">v</span></code></a></li>
+<li><a class="reference internal" href="#navis.messages.DifferentialDriveState.omega"><code class="docutils literal notranslate">omega</span></code></a></li>
+<li><a class="reference internal" href="#navis.messages.DifferentialDriveState.wheel_velocities"><code class="docutils literal notranslate">wheel_velocities</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.messages.SpotState"><code class="docutils literal notranslate"><span class="pre">SpotState</span></code></a><ul>
+<li><a class="reference internal" href="#navis.messages.SpotState.body_height"><code class="docutils literal notranslate">body_height</span></code></a></li>
+<li><a class="reference internal" href="#navis.messages.SpotState.is_standing"><code class="docutils literal notranslate">is_standing</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.messages.Measurement"><code class="docutils literal notranslate"><span class="pre">Measurement</span></code></a><ul>
+<li><a class="reference internal" href="#navis.messages.Measurement.x"><code class="docutils literal notranslate">x</span></code></a></li>
+<li><a class="reference internal" href="#navis.messages.Measurement.y"><code class="docutils literal notranslate">y</span></code></a></li>
+<li><a class="reference internal" href="#navis.messages.Measurement.theta"><code class="docutils literal notranslate">theta</span></code></a></li>
+<li><a class="reference internal" href="#navis.messages.Measurement.state"><code class="docutils literal notranslate">state</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.messages.Move"><code class="docutils literal notranslate"><span class="pre">Move</span></code></a><ul>
+<li><a class="reference internal" href="#navis.messages.Move.v"><code class="docutils literal notranslate">v</span></code></a></li>
+<li><a class="reference internal" href="#navis.messages.Move.omega"><code class="docutils literal notranslate">omega</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.messages.SetGripperCommand"><code class="docutils literal notranslate"><span class="pre">SetGripperCommand</span></code></a><ul>
+<li><a class="reference internal" href="#navis.messages.SetGripperCommand.position"><code class="docutils literal notranslate">position</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.messages.PanTiltCommand"><code class="docutils literal notranslate"><span class="pre">PanTiltCommand</span></code></a><ul>
+<li><a class="reference internal" href="#navis.messages.PanTiltCommand.pan"><code class="docutils literal notranslate">pan</span></code></a></li>
+<li><a class="reference internal" href="#navis.messages.PanTiltCommand.tilt"><code class="docutils literal notranslate">tilt</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.messages.Register"><code class="docutils literal notranslate"><span class="pre">Register</span></code></a><ul>
+<li><a class="reference internal" href="#navis.messages.Register.robot_id"><code class="docutils literal notranslate">robot_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-navis.router">navis.router module</a><ul>
+<li><a class="reference internal" href="#navis-router">Navis Router</a></li>
+<li><a class="reference internal" href="#navis.router.IDService"><code class="docutils literal notranslate"><span class="pre">IDService</span></code></a><ul>
+<li><a class="reference internal" href="#navis.router.IDService.session"><code class="docutils literal notranslate">session</span></code></a></li>
+<li><a class="reference internal" href="#navis.router.IDService.queryable"><code class="docutils literal notranslate">queryable</span></code></a></li>
+<li><a class="reference internal" href="#navis.router.IDService.start"><code class="docutils literal notranslate">start()</span></code></a></li>
+<li><a class="reference internal" href="#navis.router.IDService.stop"><code class="docutils literal notranslate">stop()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#navis.router.run_zenohd"><code class="docutils literal notranslate"><span class="pre">run_zenohd()</span></code></a></li>
+<li><a class="reference internal" href="#navis.router.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-navis.visualizer">navis.visualizer module</a><ul>
+<li><a class="reference internal" href="#navis-multi-robot-visualizer">Navis Multi-Robot Visualizer</a></li>
+<li><a class="reference internal" href="#navis.visualizer.measurement_listener"><code class="docutils literal notranslate"><span class="pre">measurement_listener()</span></code></a></li>
+<li><a class="reference internal" href="#navis.visualizer.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-navis">Module contents</a></li>
+</ul>
+</div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/smolinad/navis"
+  data-type="github" data-user="smolinad" data-repo="navis">
+  <span class="w-8 flex items-center justify-around shrink-0 text-3xl">
+    <iconify-icon icon="simple-icons:github"></iconify-icon>
+  </span>
+  <span class="flex-grow px-2 break-all">
+    
+    
+      <span>smolinad/navis</span>
+    
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <iconify-icon icon="lucide:star"></iconify-icon>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <iconify-icon icon="lucide:git-fork"></iconify-icon>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/smolinad/navis/blob/main/docs/navis/navis.rst">Edit this page</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div></div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+<div class="sy-breadcrumbs" role="navigation">
+  <div class="sy-breadcrumbs-inner flex items-center">
+    <div class="md:hidden mr-3">
+      <button class="js-menu" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+        <i class="i-lucide menu"></i>
+      </button>
+    </div>
+    <ol class="flex-1" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../index.html"><span itemprop="name">[•‿•]</span></a>
+        <span>/</span>
+        <meta itemprop="position" content="1" />
+      </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <strong itemprop="name">navis package</strong>
+        <meta itemprop="position" content="2" />
+      </li></ol>
+    <div class="xl:hidden ml-1">
+      <button class="js-menu" aria-label="Show table of contents" type="button" aria-controls="rside"
+        aria-expanded="false">
+        <i class="i-lucide outdent"></i>
+      </button>
+    </div>
+  </div>
+</div><div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
+        <article class="yue" role="main">
+          <section id="navis-package">
+<h1>navis package<a class="headerlink" href="#navis-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-navis.api">
+<span id="navis-api-module"></span><h2>navis.api module<a class="headerlink" href="#module-navis.api" title="Link to this heading">¶</a></h2>
+<section id="navis-python-api">
+<h3>Navis Python API<a class="headerlink" href="#navis-python-api" title="Link to this heading">¶</a></h3>
+<p>High-level Python API for the Navis device framework using Zenoh.</p>
+<p>This module provides a comprehensive interface for building robotics
+and IoT applications. It includes a generic client for devices, a
+controller for sending commands, and utilities for device discovery.</p>
+<dl class="simple">
+<dt>Key abstractions:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceInterface</span></code> (ABC): Defines the contract for a device.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceClient</span></code>: Task runner for any device implementing the interface.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeviceController</span></code>: Tool for sending commands.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_devices</span></code>: Discover devices on the network.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.api.DeviceInterface">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.api.</span></span><span class="sig-name descname"><span class="pre">DeviceInterface</span></span><a class="reference internal" href="../_modules/navis/api.html#DeviceInterface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.DeviceInterface" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>Abstract interface defining the contract for a Navis device implementation.</p>
+<p>Devices implementing this interface must provide a method to handle
+commands received from the network.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.api.DeviceInterface.dispatch_command">
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dispatch_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Struct</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#DeviceInterface.dispatch_command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.DeviceInterface.dispatch_command" title="Link to this definition">¶</a></dt>
+<dd><p>Process an incoming command object from the network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>command</strong> (<em>msgspec.Struct</em>) – The decoded command received.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.api.PublisherTask">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.api.</span></span><span class="sig-name descname"><span class="pre">PublisherTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic_suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_provider</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#PublisherTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.PublisherTask" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Defines a periodic publishing task for a device.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.api.PublisherTask.topic_suffix">
+<span class="sig-name descname"><span class="pre">topic_suffix</span></span><a class="headerlink" href="#navis.api.PublisherTask.topic_suffix" title="Link to this definition">¶</a></dt>
+<dd><p>Suffix of the topic to publish to.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.api.PublisherTask.data_provider">
+<span class="sig-name descname"><span class="pre">data_provider</span></span><a class="headerlink" href="#navis.api.PublisherTask.data_provider" title="Link to this definition">¶</a></dt>
+<dd><p>Function returning the data to publish.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Callable</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.api.PublisherTask.interval_seconds">
+<span class="sig-name descname"><span class="pre">interval_seconds</span></span><a class="headerlink" href="#navis.api.PublisherTask.interval_seconds" title="Link to this definition">¶</a></dt>
+<dd><p>Period between successive publishes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">topic_suffix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">data_provider</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a></em><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">interval_seconds</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.api.list_devices">
+<span class="sig-prename descclassname"><span class="pre">navis.api.</span></span><span class="sig-name descname"><span class="pre">list_devices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/navis/api.html#list_devices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.list_devices" title="Link to this definition">¶</a></dt>
+<dd><p>Discover devices on the network by listening for <code class="docutils literal notranslate"><span class="pre">Register</span></code> messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>category</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Device category (e.g., <code class="docutils literal notranslate"><span class="pre">ROBOTS</span></code>).</p></li>
+<li><p><strong>timeout_seconds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – How long to listen for devices.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mapping of <code class="docutils literal notranslate"><span class="pre">robot_id</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">robot_id</span></code> for discovered devices.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.api.DeviceClient">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.api.</span></span><span class="sig-name descname"><span class="pre">DeviceClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#navis.api.DeviceInterface" title="navis.api.DeviceInterface"><span class="pre">DeviceInterface</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_messages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.13)"><span class="pre">type</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#DeviceClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.DeviceClient" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Generic client for a Navis device.</p>
+<p>Handles device registration, publishing periodic messages, and
+subscribing to commands.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.api.DeviceClient.add_publisher">
+<span class="sig-name descname"><span class="pre">add_publisher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic_suffix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_provider</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#DeviceClient.add_publisher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.DeviceClient.add_publisher" title="Link to this definition">¶</a></dt>
+<dd><p>Register a periodic publisher task.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic_suffix</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Suffix for the Zenoh topic.</p></li>
+<li><p><strong>data_provider</strong> (<em>Callable</em>) – Function providing the data.</p></li>
+<li><p><strong>interval_seconds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Publish interval in seconds.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.api.DeviceClient.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#DeviceClient.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.DeviceClient.start" title="Link to this definition">¶</a></dt>
+<dd><p>Start publishing tasks and subscribe to commands.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.api.DeviceClient.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#DeviceClient.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.DeviceClient.close" title="Link to this definition">¶</a></dt>
+<dd><p>Stop the client and close the Zenoh session.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.api.DeviceController">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.api.</span></span><span class="sig-name descname"><span class="pre">DeviceController</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#DeviceController"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.DeviceController" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Send commands to a specific Navis device.</p>
+<p>Provides convenience methods for common commands like <code class="docutils literal notranslate"><span class="pre">Move</span></code>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.api.DeviceController.send_command">
+<span class="sig-name descname"><span class="pre">send_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Struct</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#DeviceController.send_command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.DeviceController.send_command" title="Link to this definition">¶</a></dt>
+<dd><p>Send any valid <code class="docutils literal notranslate"><span class="pre">msgspec.Struct</span></code> command to the device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>command_object</strong> (<em>msgspec.Struct</em>) – The command to send.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.api.DeviceController.move">
+<span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linear_vel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angular_vel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#DeviceController.move"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.DeviceController.move" title="Link to this definition">¶</a></dt>
+<dd><p>Convenience method to send a <code class="docutils literal notranslate"><span class="pre">Move</span></code> command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>linear_vel</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Forward velocity.</p></li>
+<li><p><strong>angular_vel</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Rotational velocity.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.api.DeviceController.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/api.html#DeviceController.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.api.DeviceController.close" title="Link to this definition">¶</a></dt>
+<dd><p>Close the controller’s Zenoh session.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-navis.categories">
+<span id="navis-categories-module"></span><h2>navis.categories module<a class="headerlink" href="#module-navis.categories" title="Link to this heading">¶</a></h2>
+<p>Defines the centralized topic categories for the Navis project.</p>
+</section>
+<section id="module-navis.messages">
+<span id="navis-messages-module"></span><h2>navis.messages module<a class="headerlink" href="#module-navis.messages" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.messages.DifferentialDriveState">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.messages.</span></span><span class="sig-name descname"><span class="pre">DifferentialDriveState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">wheel_velocities</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/messages.html#DifferentialDriveState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.messages.DifferentialDriveState" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Struct</span></code></p>
+<p>State specific to a two-wheeled differential drive robot.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.DifferentialDriveState.v">
+<span class="sig-name descname"><span class="pre">v</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><a class="headerlink" href="#navis.messages.DifferentialDriveState.v" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.DifferentialDriveState.omega">
+<span class="sig-name descname"><span class="pre">omega</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><a class="headerlink" href="#navis.messages.DifferentialDriveState.omega" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.DifferentialDriveState.wheel_velocities">
+<span class="sig-name descname"><span class="pre">wheel_velocities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#navis.messages.DifferentialDriveState.wheel_velocities" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.messages.SpotState">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.messages.</span></span><span class="sig-name descname"><span class="pre">SpotState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_standing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/messages.html#SpotState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.messages.SpotState" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Struct</span></code></p>
+<p>State specific to a quadruped robot (Spot).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.SpotState.body_height">
+<span class="sig-name descname"><span class="pre">body_height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><a class="headerlink" href="#navis.messages.SpotState.body_height" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.SpotState.is_standing">
+<span class="sig-name descname"><span class="pre">is_standing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#navis.messages.SpotState.is_standing" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.messages.Measurement">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.messages.</span></span><span class="sig-name descname"><span class="pre">Measurement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><span class="pre">object</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/messages.html#Measurement"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.messages.Measurement" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Struct</span></code></p>
+<p>Robot measurement (state) message.</p>
+<p>The <cite>state</cite> field can be any robot-specific state type defined above.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.Measurement.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><a class="headerlink" href="#navis.messages.Measurement.x" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.Measurement.y">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><a class="headerlink" href="#navis.messages.Measurement.y" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.Measurement.theta">
+<span class="sig-name descname"><span class="pre">theta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><a class="headerlink" href="#navis.messages.Measurement.theta" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.Measurement.state">
+<span class="sig-name descname"><span class="pre">state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><span class="pre">object</span></a></em><a class="headerlink" href="#navis.messages.Measurement.state" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.messages.Move">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.messages.</span></span><span class="sig-name descname"><span class="pre">Move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/messages.html#Move"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.messages.Move" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Struct</span></code></p>
+<p>Command to control robot velocities.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.Move.v">
+<span class="sig-name descname"><span class="pre">v</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><a class="headerlink" href="#navis.messages.Move.v" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.Move.omega">
+<span class="sig-name descname"><span class="pre">omega</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><a class="headerlink" href="#navis.messages.Move.omega" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.messages.SetGripperCommand">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.messages.</span></span><span class="sig-name descname"><span class="pre">SetGripperCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/messages.html#SetGripperCommand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.messages.SetGripperCommand" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Struct</span></code></p>
+<p>Command to control a gripper.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.SetGripperCommand.position">
+<span class="sig-name descname"><span class="pre">position</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><a class="headerlink" href="#navis.messages.SetGripperCommand.position" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.messages.PanTiltCommand">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.messages.</span></span><span class="sig-name descname"><span class="pre">PanTiltCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pan</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tilt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/messages.html#PanTiltCommand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.messages.PanTiltCommand" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Struct</span></code></p>
+<p>Command to control a pan/tilt unit.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.PanTiltCommand.pan">
+<span class="sig-name descname"><span class="pre">pan</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><a class="headerlink" href="#navis.messages.PanTiltCommand.pan" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.PanTiltCommand.tilt">
+<span class="sig-name descname"><span class="pre">tilt</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></em><a class="headerlink" href="#navis.messages.PanTiltCommand.tilt" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.messages.Register">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.messages.</span></span><span class="sig-name descname"><span class="pre">Register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robot_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/messages.html#Register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.messages.Register" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Struct</span></code></p>
+<p>Robot registration message sent once upon connection.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.messages.Register.robot_id">
+<span class="sig-name descname"><span class="pre">robot_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></em><a class="headerlink" href="#navis.messages.Register.robot_id" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-navis.router">
+<span id="navis-router-module"></span><h2>navis.router module<a class="headerlink" href="#module-navis.router" title="Link to this heading">¶</a></h2>
+<section id="navis-router">
+<h3>Navis Router<a class="headerlink" href="#navis-router" title="Link to this heading">¶</a></h3>
+<p>Runs the Zenoh router (<code class="docutils literal notranslate"><span class="pre">zenohd</span></code>) and ID service together.</p>
+<p>The router handles all message routing between devices and controllers.
+The ID service assigns unique UUIDs to connecting devices.</p>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>uv run navis-router.py</p>
+</dd>
+</dl>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="navis.router.IDService">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navis.router.</span></span><span class="sig-name descname"><span class="pre">IDService</span></span><a class="reference internal" href="../_modules/navis/router.html#IDService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.router.IDService" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>ID Service for Navis devices.</p>
+<p>Assigns unique UUIDs to devices that request them via a Zenoh queryable.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.router.IDService.session">
+<span class="sig-name descname"><span class="pre">session</span></span><a class="headerlink" href="#navis.router.IDService.session" title="Link to this definition">¶</a></dt>
+<dd><p>The active Zenoh session.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>zenoh.Session | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="navis.router.IDService.queryable">
+<span class="sig-name descname"><span class="pre">queryable</span></span><a class="headerlink" href="#navis.router.IDService.queryable" title="Link to this definition">¶</a></dt>
+<dd><p>The declared Zenoh queryable for ID requests.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>zenoh.Queryable | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.router.IDService.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/router.html#IDService.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.router.IDService.start" title="Link to this definition">¶</a></dt>
+<dd><p>Start the ID service.</p>
+<p>Opens a Zenoh session and declares a queryable at
+<code class="docutils literal notranslate"><span class="pre">navis/admin/id_service</span></code> that generates and returns a new UUID
+whenever a device queries it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navis.router.IDService.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/router.html#IDService.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.router.IDService.stop" title="Link to this definition">¶</a></dt>
+<dd><p>Stop the ID service.</p>
+<p>Closes the Zenoh session if active.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.router.run_zenohd">
+<span class="sig-prename descclassname"><span class="pre">navis.router.</span></span><span class="sig-name descname"><span class="pre">run_zenohd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/router.html#run_zenohd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.router.run_zenohd" title="Link to this definition">¶</a></dt>
+<dd><p>Launch the Zenoh router as a subprocess.</p>
+<p>Streams the stdout of <code class="docutils literal notranslate"><span class="pre">zenohd</span></code> to the console. Exits the program
+if the <code class="docutils literal notranslate"><span class="pre">zenohd</span></code> executable is not found or if an unexpected error occurs.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.router.main">
+<span class="sig-prename descclassname"><span class="pre">navis.router.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/router.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.router.main" title="Link to this definition">¶</a></dt>
+<dd><p>Main entry point for the Navis Router.</p>
+<p>Starts the Zenoh router in a background thread, initializes the
+ID service, and keeps the services running until interrupted.</p>
+</dd></dl>
+
+</section>
+<section id="module-navis.visualizer">
+<span id="navis-visualizer-module"></span><h2>navis.visualizer module<a class="headerlink" href="#module-navis.visualizer" title="Link to this heading">¶</a></h2>
+<section id="navis-multi-robot-visualizer">
+<h3>Navis Multi-Robot Visualizer<a class="headerlink" href="#navis-multi-robot-visualizer" title="Link to this heading">¶</a></h3>
+<p>Visualizes the live state of all robots in the arena using Zenoh Pub/Sub.
+Discovers and displays robots automatically by listening to wildcard topics.</p>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.visualizer.measurement_listener">
+<span class="sig-prename descclassname"><span class="pre">navis.visualizer.</span></span><span class="sig-name descname"><span class="pre">measurement_listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/visualizer.html#measurement_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.visualizer.measurement_listener" title="Link to this definition">¶</a></dt>
+<dd><p>Callback to update the shared state when a new measurement arrives.
+This function is called by the Zenoh subscriber thread.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="navis.visualizer.main">
+<span class="sig-prename descclassname"><span class="pre">navis.visualizer.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navis/visualizer.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navis.visualizer.main" title="Link to this definition">¶</a></dt>
+<dd><p>Parses command-line arguments, initializes Zenoh, and runs the visualizer.</p>
+</dd></dl>
+
+</section>
+<section id="module-navis">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-navis" title="Link to this heading">¶</a></h2>
+<p>This package provides a high-level Python interface for controlling and
+monitoring robots connected to the Navis server.</p>
+<p>To get started, use the API classes  to interact with your robots:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">import</span><span class="w"> </span><span class="nn">navis.api</span>
+</span><span data-line="2"><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span data-line="3">
+</span><span data-line="4"><span class="c1"># Initialize a controller for a specific robot</span>
+</span><span data-line="5"><span class="n">controller</span> <span class="o">=</span> <span class="n">navis</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">RobotController</span><span class="p">(</span><span class="s2">&quot;robot001&quot;</span><span class="p">)</span>
+</span><span data-line="6">
+</span><span data-line="7"><span class="c1"># Send a command</span>
+</span><span data-line="8"><span class="n">controller</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">linear_vel</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">angular_vel</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+</span><span data-line="9"><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span data-line="10"><span class="n">controller</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">linear_vel</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">angular_vel</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</section>
+</section>
+
+        </article><button class="back-to-top" type="button">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+  </svg>
+  <span>Back to top</span>
+</button><div class="navigation flex print:hidden"><div class="navigation-prev">
+    <a href="../usage.html">
+      <i class="i-lucide chevron-left"></i>
+      <div class="page-info">
+        <span>Previous</span><div class="title">Usage</div></div>
+    </a>
+  </div></div></div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p></p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials">
+<a href="https://github.com/smolinad/navis" aria-label="GitHub">
+  <iconify-icon icon="simple-icons:github"></iconify-icon>
+</a></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/shibuya.js?v=e730760c"></script></body>
+</html>
