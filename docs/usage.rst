@@ -13,7 +13,7 @@ Start the Navis server:
 Creating a Minimal Simulated Robot
 ---------------------------------
 
-A minimal synchronous robot client using `RobotClient`:
+A minimal synchronous robot client using ``RobotClient``:
 
 .. code-block:: python
 
@@ -59,7 +59,7 @@ A minimal synchronous robot client using `RobotClient`:
 Controlling the Robot
 ---------------------
 
-Send movement commands using `RobotController`:
+Send movement commands using ``RobotController``:
 
 .. code-block:: python
 
