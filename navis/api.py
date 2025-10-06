@@ -1,169 +1,136 @@
-"""Navis API Client for interacting with the robot control server.
+"""
+Navis API (Zenoh + msgspec)
+===========================
 
-This module provides a simple, high-level Python interface for controlling
-and monitoring robots connected to the Navis server. It handles HTTP requests
-for sending commands and fetching state, and includes a real-time visualization
-tool and a "plug-and-play" real-time connection manager.
+High-level Python interface for interacting with robots using Zenoh.
+
+This module provides two main functionalities:
+
+1.  A `RobotClient` class for a robot or simulator to connect to the
+    network, publish its state, and receive commands.
+
+2.  A `RobotController` class for external scripts to connect to the
+    network and send commands to a specific robot.
 """
 
-import requests
-import math
 import threading
 import time
-import asyncio
-import websockets
-from dataclasses import dataclass
-from urllib.parse import quote
-from typing import Callable, Awaitable
-import matplotlib.pyplot as plt
-import matplotlib.animation as animation
-from navis.messages import MoveCommand, ClientToServer, Register, Measurement
+
+import msgspec
+import zenoh
+from zenoh import Config
+
+# Assumes your message definitions are in a separate file
+from navis.messages import Measurement, MoveCommand, Register
+
+# =====================================================================
+# 1. API FOR ROBOTS (The Client)
+# =====================================================================
 
 
-@dataclass
-class ServerAddress:
-    """A dataclass to hold server connection details."""
-    host: str = "localhost"
-    port: int = 4321
+class RobotClient:
+    """High-level synchronous client for a robot to connect to the network."""
 
+    def __init__(self, robot_id: str, robot_type: str, robot_object: object, publish_interval: float = 0.1):
+        """Initializes the RobotClient.
 
-# Module-level configuration object, initialized with defaults.
-_server_config = ServerAddress()
-
-
-def set_server_address(host: str, port: int = 4321):
-    """Programmatically sets the server address for all subsequent API calls."""
-    global _server_config
-    _server_config.host = host
-    _server_config.port = port
-    print(f"[NAVIS API] Server address set to: {
-          _server_config.host}:{_server_config.port}")
-
-
-def get_rest_api_uri() -> str:
-    """Constructs the base URI for the REST API."""
-    return f"http://{_server_config.host}:{_server_config.port}/api"
-
-
-def get_websocket_uri(robot_id: str) -> str:
-    """Constructs the full WebSocket URI for a specific robot."""
-    safe_robot_id = quote(robot_id)
-    return f"ws://{_server_config.host}:{_server_config.port}/ws/robot/{safe_robot_id}"
-
-
-class RobotConnection:
-    """Manages a persistent real-time connection to a robot on the server.
-
-    This class provides a "plug-and-play" interface. You provide an object
-    that represents your robot's logic, and this class handles the WebSocket
-    connection, registration, sending state updates, and receiving commands
-    in the background.
-
-    The provided `robot_object` must have two methods:
-    - `get_measurement()`: Must return a Protobuf `Measurement` object.
-    - `handle_command(cmd)`: Will be called with a Protobuf `MoveCommand` object.
-
-    Args:
-        robot_id (str): The unique ID of the robot.
-        robot_type (str): The type string (e.g., "DifferentialDriveRobot").
-        robot_object (object): An instance of your robot's logic class.
-    """
-
-    def __init__(self, robot_id: str, robot_type: str, robot_object: object):
-        if not all([MoveCommand, ClientToServer, Register]):
-            raise ImportError(
-                "Protobuf messages not loaded. Cannot create RobotConnection.")
-
-        if not hasattr(robot_object, 'get_measurement') or not callable(getattr(robot_object, 'get_measurement')):
+        Args:
+            robot_id: Unique robot identifier.
+            robot_type: Robot type string, e.g., 'DifferentialDriveRobot'.
+            robot_object: An object that implements `get_measurement()` and
+                          `handle_command(cmd)`.
+            publish_interval: How often to send measurements (seconds).
+        """
+        if not all(hasattr(robot_object, attr) for attr in ["get_measurement", "handle_command"]):
             raise TypeError(
-                "The robot object must have a 'get_measurement' method.")
-        if not hasattr(robot_object, 'handle_command') or not callable(getattr(robot_object, 'handle_command')):
-            raise TypeError(
-                "The robot object must have a 'handle_command' method.")
+                "robot_object must implement get_measurement() and handle_command()")
 
         self.robot_id = robot_id
         self.robot_type = robot_type
         self.robot = robot_object
-        self._task = None
+        self.publish_interval = publish_interval
+        self.session = zenoh.open(Config())
+        self.encoder = msgspec.msgpack.Encoder()
+        self.decoder = msgspec.msgpack.Decoder(MoveCommand)
+        self._running = threading.Event()
+        self._thread = None
 
-    async def _listen_for_commands(self, ws):
+    def _publish_loop(self):
+        reg_key = f"navis/robots/{self.robot_id}/register"
+        meas_key = f"navis/robots/{self.robot_id}/measurement"
+        reg_msg = Register(robot_id=self.robot_id, robot_type=self.robot_type)
+
+        print(f"[{self.robot_id}] Publishing registration.")
+        self.session.put(reg_key, self.encoder.encode(reg_msg))
+
+        while not self._running.is_set():
+            meas = self.robot.get_measurement()
+            self.session.put(meas_key, self.encoder.encode(meas))
+            time.sleep(self.publish_interval)
+
+    def _command_callback(self, sample):
         try:
-            async for message_bytes in ws:
-                cmd = MoveCommand()
-                cmd.ParseFromString(message_bytes)
-                # Run the synchronous robot handler in a separate thread to avoid blocking the event loop
-                await asyncio.to_thread(self.robot.handle_command, cmd)
-        except websockets.exceptions.ConnectionClosed:
-            pass
-
-    async def _send_updates(self, ws):
-        register_msg = Register(robot_id=self.robot_id,
-                                robot_type=self.robot_type)
-        wrapper = ClientToServer(register=register_msg)
-        await ws.send(wrapper.SerializeToString())
-        print(f"[NAVIS CLIENT] Sent registration as type '{self.robot_type}'")
-        while True:
-            try:
-                # Run the synchronous get_measurement method in a thread
-                measurement = await asyncio.to_thread(self.robot.get_measurement)
-                wrapper = ClientToServer(measurement=measurement)
-                await ws.send(wrapper.SerializeToString())
-                await asyncio.sleep(0.1)  # Send at 10 Hz
-            except websockets.exceptions.ConnectionClosed:
-                print("[NAVIS CLIENT] Connection closed, stopping updates.")
-                break
-
-    async def _main_loop(self):
-        uri = get_websocket_uri(self.robot_id)
-        while True:
-            try:
-                print(f"[NAVIS CLIENT] Attempting to connect to {uri}...")
-                async with websockets.connect(uri) as ws:
-                    print("[NAVIS CLIENT] Connection successful.")
-                    listener_task = asyncio.create_task(
-                        self._listen_for_commands(ws))
-                    sender_task = asyncio.create_task(self._send_updates(ws))
-                    await asyncio.gather(listener_task, sender_task)
-            except (websockets.exceptions.ConnectionClosedError, ConnectionRefusedError):
-                print("[NAVIS CLIENT] Connection lost. Reconnecting in 5 seconds...")
-                await asyncio.sleep(5)
-            except Exception as e:
-                print(f"[NAVIS CLIENT] An unexpected error occurred: {
-                      e}. Reconnecting...")
-                await asyncio.sleep(5)
+            cmd = self.decoder.decode(bytes(sample.payload))
+            self.robot.handle_command(cmd)
+        except Exception as e:
+            print(f"[{self.robot_id}] Failed to decode command: {e}")
 
     def start(self):
-        """Starts the robot connection loop in the background."""
-        if self._task is None:
-            self._task = asyncio.create_task(self._main_loop())
-            print(f"[NAVIS CLIENT] Connection task for {
-                  self.robot_id} started.")
+        """Starts the client's publishing and subscribing loops."""
+        if self._thread is not None and self._thread.is_alive():
+            return
+        print(f"[{self.robot_id}] Starting client...")
+        self._running.clear()
+        self.session.declare_subscriber(
+            f"navis/robots/{self.robot_id}/command", self._command_callback)
+        self._thread = threading.Thread(target=self._publish_loop, daemon=True)
+        self._thread.start()
 
-    def stop(self):
-        """Stops the robot connection loop."""
-        if self._task:
-            self._task.cancel()
-            self._task = None
-            print(f"[NAVIS CLIENT] Connection task for {
-                  self.robot_id} stopped.")
-
-
-def get_state(robot_id: str) -> dict:
-    base_url = get_rest_api_uri()
-    safe_robot_id = quote(robot_id)
-    try:
-        resp = requests.get(f"{base_url}/state/{safe_robot_id}", timeout=1.0)
-        resp.raise_for_status()
-        return resp.json()
-    except requests.RequestException:
-        return {}
+    def close(self):
+        """Stops the client and closes the Zenoh session."""
+        print(f"[{self.robot_id}] Closing client...")
+        self._running.set()
+        if self._thread:
+            self._thread.join()
+        self.session.close()
 
 
-def move(robot_id: str, linear_vel: float = 0.0, angular_vel: float = 0.0):
-    base_url = get_rest_api_uri()
-    payload = {"robot_id": robot_id, "v": linear_vel, "omega": angular_vel}
-    try:
-        requests.post(f"{base_url}/move", json=payload,
-                      timeout=1.0).raise_for_status()
-    except requests.RequestException as e:
-        print(f"[API WARN] Failed to move robot {robot_id}: {e}")
+# =====================================================================
+# 2. API FOR CONTROLLERS
+# =====================================================================
+
+
+class RobotController:
+    """A client for sending movement commands to a specific robot."""
+
+    def __init__(self, robot_id: str):
+        """Initializes the RobotController for a specific robot.
+
+        Args:
+            robot_id: The unique identifier of the robot to control.
+        """
+        self.robot_id = robot_id
+        self.session = zenoh.open(Config())
+        self.encoder = msgspec.msgpack.Encoder()
+        print(f"[Navis API] Controller for robot '{
+              self.robot_id}' initialized.")
+
+    def move(self, linear_vel: float = 0.0, angular_vel: float = 0.0):
+        """Sends a movement command to the controlled robot.
+
+        Args:
+            linear_vel: The target linear velocity (v).
+            angular_vel: The target angular velocity (omega).
+        """
+        key = f"navis/robots/{self.robot_id}/command"
+        cmd = MoveCommand(v=linear_vel, omega=angular_vel)
+        self.session.put(key, self.encoder.encode(cmd))
+
+    def close(self):
+        """Closes the Zenoh session.
+
+        It's important to call this method when the controller is no longer
+        needed to ensure a clean disconnection.
+        """
+        self.session.close()
+        print(f"[Navis API] Controller for robot '{self.robot_id}' closed.")

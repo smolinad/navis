@@ -1,13 +1,22 @@
 Installation
 ============
 
-Navis is distributed directly from GitHub and uses **uv** to manage dependencies and environments.
-Make sure you have both Python (≥3.10) and uv installed before proceeding.
+Navis is distributed directly from GitHub and uses ``uv`` to manage dependencies and environments.
+Make sure you have both Python (≥3.13) and ``uv`` installed before proceeding.
+
+Requirements and Installation
+=============================
+
++----------------------+----------------------------------------------------------------------------------------------------------------------------------+
+| Requirement          | Installation / Documentation                                                                                                     |
++======================+==================================================================================================================================+
+| ``uv``               | `UV Installation <https://docs.astral.sh/uv/getting-started/installation/>`_                                                     |
++--------:--------------+----------------------------------------------------------------------------------------------------------------------------------+
+| Zenoh Router         | `Zenoh Installation <https://zenoh.io/docs/getting-started/installation/>`_                                                      |
++----------------------+----------------------------------------------------------------------------------------------------------------------------------+
 
 Quick Setup
 -----------
-
-Install ``uv`` by following the `official installation guide <https://docs.astral.sh/uv/getting-started/installation/>`_. Then, clone the repository and install it in editable mode:
 
 .. code-block:: bash
 

@@ -1,12 +1,13 @@
+
 Introduction
 ============
 
 **Navis** is a minimal, plug-and-play navigation stack for Python robotics experiments.
 
-It provides a simple, consistent API for running navigation servers and robot clients,
+It provides a simple, consistent API for running navigation servers and robot clients under the same LAN,
+with automatic discovery supported through ``Zenoh``,
 allowing users to quickly connect simulated (or later, physical) robots to a centralized
 controller.
-
 
 Key Features
 ------------
@@ -27,23 +28,28 @@ For example:
 
 .. code-block:: bash
 
-   # Start the Navis server on the host machine
-   uv run navis-server
+    # Start the Navis server on host machine
+    uv navis-server
 
-   # (Optional) Launch the visualizer on the client machine
-   uv run navis-visualizer --robot-id robot001 --host 199.199.1.1 
+    # (Optional) Launch the visualizer on client machine
+    uv navis-visualizer --dims 30
 
-Then, in Python:
+Then, if ``robot001`` is already connected to the server, you can control it in Python through the API: 
 
 .. code-block:: python
 
-   import navis
+    import navis.api 
+    import time
 
-   navis.set_server_address("192.168.1.188")
-   navis.move("robot001", linear_vel=1.0, angular_vel=0.0)
+    # Initialize a controller for a specific robot
+    controller = navis.api.RobotController("robot001")
+
+    # Send a command
+    controller.move(linear_vel=1.0, angular_vel=0.0)
+    time.sleep(2)
+    controller.move(linear_vel=0.0, angular_vel=0.0)
 
 Next Steps
 ----------
 
 Continue with the :doc:`installation` guide to get Navis set up locally.
-

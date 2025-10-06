@@ -177,6 +177,22 @@ wheels = [
 ]
 
 [[package]]
+name = "eclipse-zenoh"
+version = "1.5.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/59/46/501fa9a336c12a0c6f59a296233e24c00e7f30189d75cb692cab90e0b39f/eclipse_zenoh-1.5.1.tar.gz", hash = "sha256:5525adfe368e548e9a80947dbb930eedb4ae3df139bafc70358306483949b591", size = 126895, upload-time = "2025-09-04T13:53:02.988Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/86/63/d3beeb3bc882562bb6ea0a4caecd84a71d88662625bf20949b92371b2046/eclipse_zenoh-1.5.1-cp38-abi3-linux_armv6l.whl", hash = "sha256:c1d494012ef3c693a92980129857a73a4c3f3f0e2af0d0c0274c3615cd48ffda", size = 9084619, upload-time = "2025-09-04T13:52:46.991Z" },
+    { url = "https://files.pythonhosted.org/packages/7c/76/05de0c17972dc40adf083a23ea05b094a7ed238cb9f01af926d4f1947b99/eclipse_zenoh-1.5.1-cp38-abi3-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:7f124d00868a03640afaa63fdddbf9befc2ea385c83e8944ea62e029363941c4", size = 16904800, upload-time = "2025-09-04T13:52:49.111Z" },
+    { url = "https://files.pythonhosted.org/packages/ed/40/6106308e28595cf78bbc3d91fcc389cf6def17b36e5eded29c1db0945e60/eclipse_zenoh-1.5.1-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:5dcaa3a16dd0e8d517c7879f4b1dd6147ba48a15ffd12cc41ecb9b89e618f50b", size = 8652691, upload-time = "2025-09-04T13:52:51.382Z" },
+    { url = "https://files.pythonhosted.org/packages/8f/be/2128b27738576d9e80452690682170922cf576e782db8226d9309705bdf2/eclipse_zenoh-1.5.1-cp38-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:8e9f2fc126fce777e12842c4cb62235e854fa6df73afea71c04a28d7471e0b0a", size = 8974218, upload-time = "2025-09-04T13:52:52.964Z" },
+    { url = "https://files.pythonhosted.org/packages/d3/fa/4eda37827209c7856d06e6df86f48b53c77291b158baaef4702c90fc3fe7/eclipse_zenoh-1.5.1-cp38-abi3-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:21239d912c758a0fe3dd8a76454d48f493b169de7795f050cf8045c5d8ea335f", size = 9771132, upload-time = "2025-09-04T13:52:55.008Z" },
+    { url = "https://files.pythonhosted.org/packages/aa/4f/a9150d237f6ef71489395127d9c5ddd77fe5fb64864b92e0746eb04dc8a8/eclipse_zenoh-1.5.1-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:76781bbfa61fdc1e9626a03202c7dd8fd103f34761dc7b94b5a2d99f5aae629e", size = 9264787, upload-time = "2025-09-04T13:52:56.761Z" },
+    { url = "https://files.pythonhosted.org/packages/a5/1d/9309130f890c6eb783703b5aa2c4718846900f810d123a1228c45416d871/eclipse_zenoh-1.5.1-cp38-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:0f142a36241e50eb3b86f9c3b0149138d2d1d7b6dd2038589fe4c62e12e776ea", size = 9089753, upload-time = "2025-09-04T13:52:59.851Z" },
+    { url = "https://files.pythonhosted.org/packages/d4/8a/bec6c2e6fe808afab7e3c7c75eba3e3fa7e549d5028b1bdd7f983cd6d2eb/eclipse_zenoh-1.5.1-cp38-abi3-win_amd64.whl", hash = "sha256:eab374670fa9054e2500060ce33c8248f079208476defa5bb9f9a4b8317d6aac", size = 7581657, upload-time = "2025-09-04T13:53:01.467Z" },
+]
+
+[[package]]
 name = "fastapi"
 version = "0.118.0"
 source = { registry = "https://pypi.org/simple" }
@@ -500,13 +516,30 @@ wheels = [
 ]
 
 [[package]]
+name = "msgspec"
+version = "0.19.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/cf/9b/95d8ce458462b8b71b8a70fa94563b2498b89933689f3a7b8911edfae3d7/msgspec-0.19.0.tar.gz", hash = "sha256:604037e7cd475345848116e89c553aa9a233259733ab51986ac924ab1b976f8e", size = 216934, upload-time = "2024-12-27T17:40:28.597Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3c/cb/2842c312bbe618d8fefc8b9cedce37f773cdc8fa453306546dba2c21fd98/msgspec-0.19.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:f12d30dd6266557aaaf0aa0f9580a9a8fbeadfa83699c487713e355ec5f0bd86", size = 190498, upload-time = "2024-12-27T17:40:00.427Z" },
+    { url = "https://files.pythonhosted.org/packages/58/95/c40b01b93465e1a5f3b6c7d91b10fb574818163740cc3acbe722d1e0e7e4/msgspec-0.19.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:82b2c42c1b9ebc89e822e7e13bbe9d17ede0c23c187469fdd9505afd5a481314", size = 183950, upload-time = "2024-12-27T17:40:04.219Z" },
+    { url = "https://files.pythonhosted.org/packages/e8/f0/5b764e066ce9aba4b70d1db8b087ea66098c7c27d59b9dd8a3532774d48f/msgspec-0.19.0-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:19746b50be214a54239aab822964f2ac81e38b0055cca94808359d779338c10e", size = 210647, upload-time = "2024-12-27T17:40:05.606Z" },
+    { url = "https://files.pythonhosted.org/packages/9d/87/bc14f49bc95c4cb0dd0a8c56028a67c014ee7e6818ccdce74a4862af259b/msgspec-0.19.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:60ef4bdb0ec8e4ad62e5a1f95230c08efb1f64f32e6e8dd2ced685bcc73858b5", size = 213563, upload-time = "2024-12-27T17:40:10.516Z" },
+    { url = "https://files.pythonhosted.org/packages/53/2f/2b1c2b056894fbaa975f68f81e3014bb447516a8b010f1bed3fb0e016ed7/msgspec-0.19.0-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:ac7f7c377c122b649f7545810c6cd1b47586e3aa3059126ce3516ac7ccc6a6a9", size = 213996, upload-time = "2024-12-27T17:40:12.244Z" },
+    { url = "https://files.pythonhosted.org/packages/aa/5a/4cd408d90d1417e8d2ce6a22b98a6853c1b4d7cb7669153e4424d60087f6/msgspec-0.19.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:a5bc1472223a643f5ffb5bf46ccdede7f9795078194f14edd69e3aab7020d327", size = 219087, upload-time = "2024-12-27T17:40:14.881Z" },
+    { url = "https://files.pythonhosted.org/packages/23/d8/f15b40611c2d5753d1abb0ca0da0c75348daf1252220e5dda2867bd81062/msgspec-0.19.0-cp313-cp313-win_amd64.whl", hash = "sha256:317050bc0f7739cb30d257ff09152ca309bf5a369854bbf1e57dffc310c1f20f", size = 187432, upload-time = "2024-12-27T17:40:16.256Z" },
+]
+
+[[package]]
 name = "navis"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "eclipse-zenoh" },
     { name = "fastapi" },
     { name = "grpcio-tools" },
     { name = "matplotlib" },
+    { name = "msgspec" },
     { name = "numpy" },
     { name = "pyyaml" },
     { name = "requests" },
@@ -518,9 +551,11 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "eclipse-zenoh", specifier = ">=1.5.1" },
     { name = "fastapi", specifier = ">=0.118.0" },
     { name = "grpcio-tools", specifier = ">=1.75.1" },
     { name = "matplotlib", specifier = ">=3.10.6" },
+    { name = "msgspec", specifier = ">=0.19.0" },
     { name = "numpy", specifier = ">=2.3.3" },
     { name = "pyyaml", specifier = ">=6.0.3" },
     { name = "requests", specifier = ">=2.32.5" },
