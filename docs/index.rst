@@ -14,7 +14,7 @@ Navis
 
 .. container:: video-1
 
-  .. video:: https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm
+  .. video:: _static/demo.mov
 
 .. toctree::
    :maxdepth: 4
