@@ -13,6 +13,7 @@ Navis
     `GitHub <https://github.com/smolinad/navis>`_
 
 .. container:: video-1
+
    .. video:: _static/demo.mp4
 
 .. toctree::
